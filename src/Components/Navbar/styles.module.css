@@ -1,0 +1,50 @@
+.nav {
+  @apply
+  flex
+  justify-between
+  bg-neutral-50/50
+  p-6
+  z-10
+}
+
+.logo {
+  @apply
+  flex
+  items-center
+  flex-shrink-0
+  text-zinc-900	
+  mr-6
+}
+
+.logo .link {
+  @apply 
+  font-semibold 
+  text-xl 
+  tracking-tight
+  flex
+  flex-row
+}
+
+.categoryNav {
+  @apply
+  flex
+  justify-center
+  flex-wrap
+  bg-transparent
+  py-2
+  shadow-sm
+  shadow-zinc-900/10
+}
+
+.categoryLink {
+  @apply
+  mx-8
+  font-normal
+  tracking-widest
+  text-zinc-800
+  hover:underline
+  decoration-2
+  hover:decoration-blue-600
+  hover:text-blue-600
+  hover:underline-offset-[12.1px]
+}

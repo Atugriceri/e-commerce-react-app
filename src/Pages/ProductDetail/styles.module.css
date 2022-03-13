@@ -1,0 +1,66 @@
+.addToCart {
+  @apply
+  mx-auto 
+  text-center
+}
+
+.addToCartButton {
+  @apply 
+  inline-flex 
+  justify-center 
+  w-full
+  rounded-md 
+  border 
+  border-neutral-300 
+  shadow-sm
+  shadow-zinc-900/10
+  px-2
+  py-2 
+  bg-gradient-to-l from-blue-500 via-blue-600 to-blue-500
+  text-sm 
+  font-medium 
+  text-white
+  hover:bg-gradient-to-r 
+  hover:from-blue-500
+  hover:via-blue-700
+  hover:to-blue-500
+  hover:shadow-blue-700
+  hover:shadow-inner
+}
+
+.removeButton {
+  @apply 
+  inline-flex 
+  justify-center 
+  w-full
+  rounded-md 
+  border 
+  border-neutral-300 
+  shadow-sm
+  shadow-zinc-900/10
+  px-2
+  py-2 
+  bg-gradient-to-l from-yellow-300 via-yellow-400 to-yellow-300
+  text-sm 
+  font-medium 
+  text-white
+  hover:bg-gradient-to-r 
+  hover:from-yellow-300
+  hover:via-yellow-500
+  hover:to-yellow-300
+  hover:shadow-yellow-500
+  hover:shadow-inner
+}
+
+.shoppingCartIcon {
+  @apply 
+  my-auto 
+  h-4 
+  w-4 
+  mr-2
+}
+
+.buttonText {
+  @apply 
+  font-light
+}

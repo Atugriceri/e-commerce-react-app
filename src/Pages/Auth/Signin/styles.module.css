@@ -1,0 +1,98 @@
+.formGroupContainer {
+  @apply 
+  min-h-full 
+  flex items-center 
+  justify-center 
+  py-12 
+  px-4 
+  sm:px-6 
+  lg:px-8
+}
+
+.titleBox {
+  @apply 
+  max-w-md 
+  w-full 
+  space-y-8
+}
+
+.title{
+  @apply 
+  mt-6 
+  text-center 
+  text-5xl 
+  font-extralight 
+  text-gray-900
+  tracking-wide
+}
+
+.formGroup {
+  @apply
+  mt-8
+  space-y-6
+  px-20
+}
+
+.inputGroup {
+  @apply 
+  rounded-md  
+  -space-y-px
+}
+
+.input {
+  @apply 
+  appearance-none 
+  relative 
+  block 
+  w-full
+  mb-5
+  px-3 
+  py-2 
+  border 
+  border-gray-300 
+  placeholder-gray-500 
+  text-gray-900 
+  rounded-md
+  focus:outline-none  
+  focus:ring-1 
+  focus:ring-blue-400 
+  focus:z-10 
+  sm:text-sm
+}
+
+.linkBox {
+  @apply 
+  flex 
+  items-center 
+  pb-5
+}
+
+.button {
+  @apply
+text-stone-50 
+  justify-center 
+  w-full
+  rounded-md 
+  border 
+  border-neutral-300 
+  shadow-md 
+  px-2
+  py-2 
+  bg-gradient-to-l from-blue-500 via-blue-600 to-blue-500
+  text-sm 
+  font-medium 
+  hover:bg-gradient-to-r 
+  hover:from-blue-500
+  hover:via-blue-500
+  hover:to-blue-500
+  mt-2
+}
+
+.linkDiv {
+  @apply 
+  flex 
+  items-center 
+  mx-auto
+}
+
+

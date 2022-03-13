@@ -1,0 +1,23 @@
+.spinner {
+  @apply
+  flex flex-col justify-between items-center mx-auto mt-44
+}
+
+.firstCircle {
+  @apply relative w-12 h-12 animate-spin rounded-full bg-gradient-to-l from-blue-300 via-blue-600 to-blue-300
+}
+
+.secondCircle {
+  @apply
+  absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-neutral-50 rounded-full border-2 border-dashed border-white
+}
+
+.status {
+  @apply
+  mt-5 text-lg font-semibold text-center mx-auto
+}
+
+.statusText {
+  @apply
+  font-light
+}

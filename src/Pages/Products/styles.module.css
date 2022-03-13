@@ -1,0 +1,7 @@
+.cardGroup {
+  @apply
+  flex 
+  flex-wrap
+  mx-4
+  my-4
+}

@@ -1,0 +1,186 @@
+
+.card {
+  @apply
+  w-full
+  sm:w-1/2
+  md:w-1/2
+  xl:w-1/5
+  p-4
+}
+
+.cardLink {
+  @apply
+  block 
+  bg-white 
+  shadow-sm
+  hover:shadow-md
+  border-t
+  border-stone-500/10
+  shadow-zinc-900/10
+  rounded-lg 
+  overflow-hidden
+  h-full
+}
+
+.cardHeader {
+  @apply 
+  relative 
+  pb-96 
+  overflow-hidden
+  shadow-sm
+}
+
+.cardImg {
+  @apply 
+  absolute 
+  inset-0
+  max-h-80 
+  w-full 
+  object-contain
+  my-auto
+  px-4
+}
+
+.cardBody {
+  @apply 
+  p-4 
+  h-full 
+  flex 
+  flex-1 
+  flex-col
+}
+
+.brand {
+  @apply 
+  mt-2 
+  mb-2 
+  font-bold 
+  text-sm
+  underline
+  decoration-wavy
+  decoration-zinc-900/10
+  hover:text-blue-600
+}
+
+.cardTitle {
+  @apply 
+  mt-2 
+  font-light
+  text-sm 
+  truncate 
+  mb-2
+}
+
+.cardLink img {
+  transition: transform .3s ease-in-out; 
+}
+
+.cardLink img:hover {
+  transform: scale(1.02)
+}
+
+/* Add To Cart */
+.addToCart {
+  @apply
+  mx-auto 
+  text-center
+  w-full
+  mt-2
+}
+
+.addToCartButton {
+  @apply 
+  inline-flex 
+  justify-center 
+  w-full
+  rounded-md 
+  border 
+  border-neutral-300 
+  shadow-sm
+  shadow-zinc-900/10
+  px-2
+  py-2 
+  bg-gradient-to-l from-blue-500 via-blue-600 to-blue-500
+  text-sm 
+  font-medium 
+  text-white
+  hover:bg-gradient-to-r 
+  hover:from-blue-500
+  hover:via-blue-700
+  hover:to-blue-500
+  hover:shadow-blue-700
+  hover:shadow-inner
+}
+
+.removeButton {
+  @apply 
+  inline-flex 
+  justify-center 
+  w-full
+  rounded-md 
+  border 
+  border-neutral-300 
+  shadow-sm
+  shadow-zinc-900/10
+  px-2
+  py-2 
+  bg-gradient-to-l from-yellow-400 via-yellow-300 to-yellow-400
+  text-sm 
+  font-medium 
+  text-white
+  hover:bg-gradient-to-r 
+  hover:from-amber-400
+  hover:via-yellow-300
+  hover:to-amber-400
+  hover:shadow-yellow-300
+  hover:shadow-inner
+}
+
+.shoppingCartIcon {
+  @apply 
+  my-auto 
+  h-4 
+  w-4 
+  mr-2
+}
+
+.buttonText {
+  @apply 
+  font-light
+}
+
+.favButton {
+  @apply h-10 
+  w-10 
+  ml-auto 
+  m-4 
+  shadow-sm 
+  shadow-zinc-900/10 
+  hover:shadow-md 
+  bg-zinc-300/10 
+  rounded-full 
+  text-zinc-900/10 
+  hover:text-red-500 
+  flex
+}
+
+.removeFavButton {
+  @apply 
+  h-10 
+  w-10 
+  ml-auto 
+  m-4 
+  shadow-sm 
+  shadow-zinc-900/10 
+  bg-zinc-300/10 
+  rounded-full 
+  text-red-500 flex
+}
+
+.heartIcon {
+  @apply 
+  h-8 
+  w-8 
+  mx-auto 
+  my-auto
+}
