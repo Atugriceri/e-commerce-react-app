@@ -64,3 +64,39 @@
   @apply 
   font-light
 }
+
+.favButton {
+  @apply h-10 
+  w-10 
+  ml-auto 
+  m-4 
+  shadow-sm 
+  shadow-zinc-900/10 
+  hover:shadow-md 
+  bg-zinc-300/10 
+  rounded-full 
+  text-zinc-900/10 
+  hover:text-red-500 
+  flex
+}
+
+.removeFavButton {
+  @apply 
+  h-10 
+  w-10 
+  ml-auto 
+  m-4 
+  shadow-sm 
+  shadow-zinc-900/10 
+  bg-zinc-300/10 
+  rounded-full 
+  text-red-500 flex
+}
+
+.heartIcon {
+  @apply 
+  h-8 
+  w-8 
+  mx-auto 
+  my-auto
+}

@@ -1,7 +1,9 @@
 import axios from 'axios'
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 const ProductContext = createContext()
+
 
 export const ProductProvider = ({ children }) => {
   const [productList, setProductList] = useState([])
@@ -48,10 +50,9 @@ export const ProductProvider = ({ children }) => {
     getProductData()
   }, [category])
 
-
   useEffect(() => {
     const getProductDetail = async () => {
-      await axios.get(`https://fakestoreapi.com/products/${productID}`).then(
+      productID && await axios.get(`https://fakestoreapi.com/products/${productID}`).then(
         (res) => {
           setProduct(res.data)
           setProductID(res.data.id)

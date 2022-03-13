@@ -1,25 +1,29 @@
-import React from 'react'
-import styles from './styles.module.css'
-import { 
-  StarIcon, 
-  ShoppingCartIcon 
-} from '@heroicons/react/solid'
-import { HeartIcon } from '@heroicons/react/outline'
-import { Link } from 'react-router-dom'
+import React from "react";
+import styles from "./styles.module.css";
+import { StarIcon, ShoppingCartIcon } from "@heroicons/react/solid";
+import { HeartIcon } from "@heroicons/react/outline";
+import { Link } from "react-router-dom";
 
-const Card = ({item, addToFavorite, addToCart, findFavoriteItem, findCartItem, setProductID}) => {
+const Card = ({
+  item,
+  addToFavorite,
+  addToCart,
+  findFavoriteItem,
+  findCartItem,
+  setProductID,
+}) => {
   return (
     <div key={`${item.id}-item`} className={styles.card} title={item.title}>
       <div className={styles.cardLink}>
-        <button className={
+        <button
+          className={
             !findFavoriteItem ? styles.favButton : styles.removeFavButton
-          }>
-        <HeartIcon
-        className={styles.heartIcon}
+          }
           onClick={() => {
-            addToFavorite(item, findFavoriteItem)
+            addToFavorite(item, findFavoriteItem);
           }}
-        />
+        >
+          <HeartIcon className={styles.heartIcon} />
         </button>
         <Link to={`/product/${item.id}`} onClick={() => setProductID(item.id)}>
           <div className={styles.cardHeader}>
@@ -38,12 +42,14 @@ const Card = ({item, addToFavorite, addToCart, findFavoriteItem, findCartItem, s
           <div className="flex flex-row mb-2" title={item.rating.rate}>
             {[...Array(Math.round(item.rating.rate))].map((e, i) => (
               <StarIcon
+                key={`star-${i}`}
                 className="starIcon h-4 w-4 text-amber-400 my-auto"
                 aria-hidden="true"
               />
             ))}
             {[...Array(5 - Math.round(item.rating.rate))].map((e, i) => (
               <StarIcon
+                key={`empty-star-${i}`}
                 className="starIcon text-zinc-900/10 h-4 w-4 my-auto"
                 aria-hidden="true"
               />

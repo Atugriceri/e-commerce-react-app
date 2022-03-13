@@ -16,19 +16,17 @@ const Products = () => {
   const {category_id} = useParams()
 
   useEffect(() => {
-    console.log(category_id)
     setCategory(category_id)
-    console.log(category_id)
   }, [category_id])
 
   return (
     <div className={styles.cardGroup}>
       {loading ? (
-        productList?.map((item) => {
+        productList?.map((item, i) => {
           const findCartItem = items.find((cart_item) => cart_item.id === item.id)
           const findFavoriteItem = favoriteItems.find((favorite_item) => favorite_item.id === item.id)
           return (
-            <Card item={item} setProductID={setProductID} findCartItem={findCartItem} findFavoriteItem={findFavoriteItem} addToCart={addToCart} addToFavorite={addToFavorite} />
+            <Card key={`product-${i}`} item={item} setProductID={setProductID} findCartItem={findCartItem} findFavoriteItem={findFavoriteItem} addToCart={addToCart} addToFavorite={addToFavorite} />
           );
         })
       ) : (

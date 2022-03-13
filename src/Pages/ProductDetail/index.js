@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
+import { HeartIcon } from "@heroicons/react/outline";
 import Spinner from "../../Components/Spinner";
 import { useProduct } from "../../Context/ProductContext";
 import { useCart } from "../../Context/CartContext";
+import { useFavorite } from "../../Context/FavoriteContext";
 import styles from "./styles.module.css";
 
 const ProductDetail = () => {
   const { addToCart, items } = useCart();
+  const { addToFavorite, favoriteItems } = useFavorite();
   const { product, loading, setProductID } = useProduct();
   const { product_id } = useParams();
 
@@ -16,6 +19,7 @@ const ProductDetail = () => {
   }, [product_id]);
 
   const findCartItem = items.find((item) => item.id === product.id);
+  const findFavoriteItem = favoriteItems.find((item) => item.id === product.id);
 
   return (
     <>
@@ -35,25 +39,6 @@ const ProductDetail = () => {
                 <h1 className="text-gray-900 text-2xl title-font font-bold tracking-tight mb-1">
                   {product.title}
                 </h1>
-                {/*   {<div className="flex flex-row mb-2" title={product.rating.rate}>
-                    {[...Array(Math.round(product.rating.rate))].map(() => (
-                      <StarIcon
-                        className="starIcon h-4 w-4 text-amber-400 my-auto"
-                        aria-hidden="true"
-                      />
-                    ))}
-                    {[...Array(5 - Math.round(product.rating.rate))].map(
-                      () => (
-                        <StarIcon
-                          className="starIcon text-zinc-900/10 h-4 w-4 my-auto"
-                          aria-hidden="true"
-                        />
-                      )
-                    )}
-                    <p className="text-xs ml-1 font-light mt-0.5">
-                      ({product.rating.count})
-                    </p>
-                  </div>} */}
                 <p className="leading-relaxed border-b mb-4 border-zinc-900/10 border-offset-4 pb-6">
                   {product.description}
                 </p>
@@ -75,6 +60,20 @@ const ProductDetail = () => {
                           className={styles.shoppingCartIcon}
                           aria-hidden="true"
                         />
+                        <button
+                          className={
+                            !findFavoriteItem
+                              ? styles.favButton
+                              : styles.removeFavButton
+                          }
+                          onClick={() => {
+                            addToFavorite(product, findFavoriteItem)
+                          }}
+                        >
+                          <HeartIcon
+                            className={styles.heartIcon}
+                          />
+                        </button>
                         <div className="flex flex-col self-center">
                           <span className={styles.buttonText}>
                             {findCartItem ? "Remove from cart" : "Add to Cart"}
