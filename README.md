@@ -116,6 +116,8 @@ You can list the products by clicking on the categories, add and remove the prod
 - [x] Add to favorites and favorites page.
 - [x] Add to cart and cart page.
 - [ ] Responsive Design
+      - [ ] Navbar
+      - [ ] Card
 - [ ] Complete the sign in and sign up process.
 - [ ] Create order page.
 
