@@ -1,70 +1,158 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div id="top"></div>
+            
+[![MIT License][license-shield]](https://github.com/Atugriceri/e-commerce-react-app/blob/main/LICENSE)
+[![LinkedIn][linkedin-shield]](https://www.linkedin.com/in/alpertugriceri/)
 
-## Available Scripts
 
-In the project directory, you can run:
+<br />
+<div align="center">
+  <a href="https://github.com/Atugriceri/e-commerce-react-app">
+    <img src="https://openmoji.org/data/color/svg/1F6D2.svg" alt="Logo" width="80" height="80">
+  </a>
+  <h3 align="center">E-Commerce-React-App</h3>
 
-### `npm start`
+  <p align="center">
+     Shopping site project that includes basic processes such as adding to cart, adding to favorites, product listing and product detail page, which should be on an e-commerce site.
+    <br />
+    <br />
+    <a href="https://atugriceri-e-commerce-react-app.netlify.app/">View Demo</a>
+  </p>
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-### `npm test`
+![PROJECT_SCREENSHOT_01](./src/Assets/Screenshots/Screenshot_01.jpg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+An e-commerce site with basic shopping functions. You can list the products according to their categories, go to the detail page of the relevant product, add the product to your favorites and to the cart, together with the captured product data.
 
-### `npm run build`
+The project was developed in conjunction with React.js, including Context, Hooks, and Life Cycles Methods. Styled with Tailwind CSS. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Built With
 
-### `npm run eject`
+* [React.js](https://reactjs.org/)
+* [Tailwind CSS](https://tailwindui.com/)
+* [Axios](https://www.npmjs.com/package/axios)
+* [Fake Store Api](https://fakestoreapi.com/)
+* [Firebase](https://firebase.google.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- GETTING STARTED -->
+## Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ -  Sign up to [https://firebase.google.com/](https://firebase.google.com/) with your e-mail and add a Firebase project.  
+ -  Fork the project and clone it locally.
+ -  Add Firebase to your web application.
+ -  Create a file named .env in the root of the project according to the incoming Firebase configuration and follow the steps below:
 
-## Learn More
+    ```sh
+    REACT_APP_API_KEY=
+    REACT_APP_FIREBASE_API_KEY=YOUR API KEY HERE
+    REACT_APP_FIREBASE_AUTH_DOMAIN=YOUR FIREBASE AUTH DOMAIN HERE
+    REACT_APP_FIREBASE_PROJECT_ID=YOUR FIREBASE PROJECT ID HERE
+    REACT_APP_FIREBASE_STORAGE_BUCKET=YOUR FIREBASE STORAGE BUCKET HERE
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=YOUR FIREBASE MESSAGING SENDER ID HERE
+    REACT_APP_FIREBASE_APP_ID=YOUR FIREBASE APP ID HERE
+    ```
+ 
+ -  In Firebase, from the Authentication tab, set the Sign-in provider as Email/Password.
+ -  In the project directory, ou can follow the steps below to download the dependencies:
+     - Install with npm:
+     ```sh
+     npm i
+     ```
+     - Install with yarn:
+     ```sh
+     yarn
+     ```
+- In the project directory, you can run:
+  - Run with npm:
+  ```sh
+  npm run
+  ```
+  - Run with yarn:
+  ```sh
+  yarn start
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+You can list the products by clicking on the categories, add and remove the products to the cart and favorites. You can view the products you have added to the cart and favorites on the cart and favorites pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[See it live!](https://atugriceri-e-commerce-react-app.netlify.app/)
 
-### Analyzing the Bundle Size
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Roadmap
 
-### Making a Progressive Web App
+- [x] Fetching product data, listing by categories and product detail page.
+- [x] Add to favorites and favorites page.
+- [x] Add to cart and cart page.
+- [ ] Responsive Design
+- [ ] Complete the sign in and sign up process.
+- [ ] Create order page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-### Deployment
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Alper Tugriçeri - [Linkedin](https://www.linkedin.com/in/alpertugriceri/) - alpertugriceri@gmail.com
+
+Project Link: [https://github.com/Atugriceri/e-commerce-react-app](https://github.com/Atugriceri/e-commerce-react-app)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* [Hero Icons](https://heroicons.com/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
