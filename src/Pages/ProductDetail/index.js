@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ShoppingCartIcon } from "@heroicons/react/solid";
-import { HeartIcon } from "@heroicons/react/outline";
+import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/solid";
 import Spinner from "../../Components/Spinner";
 import { useProduct } from "../../Context/ProductContext";
 import { useCart } from "../../Context/CartContext";
@@ -45,11 +44,11 @@ const ProductDetail = () => {
 
                 <div className="flex">
                   <div className="my-auto">
-                    <span className="font-extralight text-2xl">
+                    <span className="font-extralight text-2xl inline-block align-middle mt-2 my-auto">
                       $ {product.price}
                     </span>
                   </div>
-                  <div className="ml-auto my-auto mt-0">
+                  <div className="block ml-auto my-auto mt-0">
                     {" "}
                     <div className={styles.addToCart}>
                       <button
@@ -60,7 +59,20 @@ const ProductDetail = () => {
                           className={styles.shoppingCartIcon}
                           aria-hidden="true"
                         />
-                        <button
+                        
+                        <div className="flex flex-col self-center">
+                          <span className={styles.buttonText}>
+                            {findCartItem ? "Remove from cart" : "Add to Cart"}
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                  
+
+                  <div className="block my-auto">
+                  <button
                           className={
                             !findFavoriteItem
                               ? styles.favButton
@@ -74,28 +86,6 @@ const ProductDetail = () => {
                             className={styles.heartIcon}
                           />
                         </button>
-                        <div className="flex flex-col self-center">
-                          <span className={styles.buttonText}>
-                            {findCartItem ? "Remove from cart" : "Add to Cart"}
-                          </span>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="block my-auto">
-                    <button className="rounded-full w-9 h-9 bg-zinc-900/10 my-auto border-0 inline-flex items-center justify-center text-zinc-900/10 ml-4">
-                      <svg
-                        fill="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-5 h-5"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
-                      </svg>
-                    </button>
                   </div>
                 </div>
               </div>

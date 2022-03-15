@@ -1,7 +1,12 @@
+/***** ADD TO CART BUTTON STYLES START *****/
+
 .addToCart {
   @apply
   mx-auto 
   text-center
+  w-full
+  mt-2
+  px-4
 }
 
 .addToCartButton {
@@ -10,22 +15,15 @@
   justify-center 
   w-full
   rounded-md 
-  border 
-  border-neutral-300 
   shadow-sm
   shadow-zinc-900/10
-  px-2
+  px-10
   py-2 
-  bg-gradient-to-l from-blue-500 via-blue-600 to-blue-500
-  text-sm 
-  font-medium 
+  bg-blue-600
   text-white
-  hover:bg-gradient-to-r 
-  hover:from-blue-500
-  hover:via-blue-700
-  hover:to-blue-500
-  hover:shadow-blue-700
-  hover:shadow-inner
+  text-sm
+  hover:bg-gradient-to-b 
+  hover:bg-yellow-300
 }
 
 .removeButton {
@@ -34,69 +32,52 @@
   justify-center 
   w-full
   rounded-md 
-  border 
-  border-neutral-300 
   shadow-sm
   shadow-zinc-900/10
   px-2
   py-2 
-  bg-gradient-to-l from-yellow-300 via-yellow-400 to-yellow-300
+  bg-red-600
   text-sm 
-  font-medium 
   text-white
-  hover:bg-gradient-to-r 
-  hover:from-yellow-300
-  hover:via-yellow-500
-  hover:to-yellow-300
-  hover:shadow-yellow-500
-  hover:shadow-inner
+  hover:bg-yellow-300
 }
 
 .shoppingCartIcon {
   @apply 
   my-auto 
-  h-4 
-  w-4 
-  mr-2
+  h-5 
+  w-6 
 }
 
 .buttonText {
   @apply 
-  font-light
+  font-bold
 }
 
+/***** ADD TO CART BUTTON STYLES END *****/
+
 .favButton {
-  @apply h-10 
-  w-10 
-  ml-auto 
-  m-4 
-  shadow-sm 
-  shadow-zinc-900/10 
-  hover:shadow-md 
-  bg-zinc-300/10 
-  rounded-full 
-  text-zinc-900/10 
+  @apply 
+  h-10
+  w-10
+  ml-auto  
+  text-zinc-900/80
   hover:text-red-500 
-  flex
+  block
 }
 
 .removeFavButton {
   @apply 
   h-10 
   w-10 
-  ml-auto 
-  m-4 
-  shadow-sm 
-  shadow-zinc-900/10 
-  bg-zinc-300/10 
-  rounded-full 
+  ml-auto  
   text-red-500 flex
 }
 
 .heartIcon {
   @apply 
-  h-8 
-  w-8 
+  h-10 
+  w-10 
   mx-auto 
   my-auto
 }
