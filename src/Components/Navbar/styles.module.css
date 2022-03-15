@@ -2,7 +2,7 @@
   @apply
   flex
   justify-between
-  bg-neutral-50/50
+  bg-transparent
   p-6
   z-10
 }
@@ -11,9 +11,7 @@
   @apply
   flex
   items-center
-  flex-shrink-0
-  text-zinc-900	
-  mr-6
+  flex-shrink-0	
 }
 
 .logo .link {
@@ -28,23 +26,55 @@
 .categoryNav {
   @apply
   flex
-  justify-center
-  flex-wrap
-  bg-transparent
   py-2
-  shadow-sm
-  shadow-zinc-900/10
+  max-w-7xl
+  mx-auto
+  bg-transparent
+  rounded-lg
+  overflow-x-auto
+  sm:justify-start
+  md:justify-center
 }
 
 .categoryLink {
   @apply
-  mx-8
-  font-normal
   tracking-widest
-  text-zinc-800
-  hover:underline
-  decoration-2
-  hover:decoration-blue-600
-  hover:text-blue-600
-  hover:underline-offset-[12.1px]
+  text-black
+  hover:border-x-4
+  hover:border-blue-600
+  decoration-dashed
+  px-6
+  py-2
+  hover:underline-offset-[5px]
+  mx-0
+  flex
+}
+
+.categoryLink h1 {
+  @apply mx-4
+}
+
+.logoText {
+  font-family: 'Oswald', sans-serif;
+  @apply
+  text-3xl text-yellow-300 ml-2 my-auto
+  tracking-widest
+}
+
+.logoBox {
+  @apply bg-gradient-to-b from-blue-600 via-blue-700 to-blue-600 w-10 h-10 rounded-md
+}
+
+.disclosurePanel {
+  @apply 
+  sm:hidden  
+  flex 
+  flex-col 
+  border-2 
+  rounded-md 
+  border-zinc-900/10 
+  shadow-md 
+  shadow-zinc-900/10 
+  mb-4 
+  mx-2
 }

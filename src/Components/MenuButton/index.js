@@ -190,12 +190,9 @@ const MenuButton = () => {
           <Menu.Items className={styles.menuItems}>
             <div className="py-1 px-1">
               <Menu.Item>
-                {({ active }) => (
                   <Link
                     to="/signin"
-                    className={`${
-                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
+                    className="bg-zinc-400/10  text-zinc-900/80 group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium shadow-md shadow-zinc-900/10 "
                   >
                     <LoginIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -203,15 +200,11 @@ const MenuButton = () => {
                     />
                     Login
                   </Link>
-                )}
               </Menu.Item>
               <Menu.Item>
-                {({ active }) => (
                   <Link
                     to="/signup"
-                    className={`${
-                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
+                    className="bg-zinc-400/10  text-zinc-900/80 group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium"
                   >
                     <IdentificationIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -219,17 +212,13 @@ const MenuButton = () => {
                     />
                     Sign Up
                   </Link>
-                )}
               </Menu.Item>
             </div>
             <div className="py-1 px-1">
             <Menu.Item>
-                {({ active }) => (
                   <a
                     href="#"
-                    className={`${
-                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
+                    className="bg-zinc-400/10  text-zinc-900/80 group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium"
                   >
                     <ShoppingCartIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -237,15 +226,11 @@ const MenuButton = () => {
                     />
                     Cart
                   </a>
-                )}
               </Menu.Item>
               <Menu.Item>
-                {({ active }) => (
                   <a
                     href="#"
-                    className={`${
-                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
+                    className="bg-zinc-400/10  text-zinc-900/80 group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium"
                   >
                     <ClipboardListIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -253,15 +238,11 @@ const MenuButton = () => {
                     />
                     Orders
                   </a>
-                )}
               </Menu.Item>
               <Menu.Item>
-                {({ active }) => (
                   <Link
                     to="/favorites"
-                    className={`${
-                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
+                    className="bg-zinc-400/10  text-zinc-900/80 group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium"
                   >
                     <HeartIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -269,17 +250,14 @@ const MenuButton = () => {
                     />
                     Favorites
                   </Link>
-                )}
+
               </Menu.Item>
             </div>
             <div className="px-1 py-1">
               <Menu.Item>
-                {({ active }) => (
                   <a
                     href="#"
-                    className={`${
-                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
+                    className="bg-zinc-400/10  text-zinc-900/80 group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium"
                   >
                     <LogoutIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -287,7 +265,6 @@ const MenuButton = () => {
                     />
                     Logout
                   </a>
-                )}
               </Menu.Item>
             </div>
           </Menu.Items>
