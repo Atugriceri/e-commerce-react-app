@@ -6,17 +6,36 @@
 }
 
 .cartButton {
+  @apply
+  py-2
+  pr-2 
+  flex
+  bg-transparent
+  text-zinc-900/80
+}
+
+.cartIcon {
+  @apply
+  my-auto 
+  h-10 
+  w-10 
+  relative
+}
+
+.cartCount {
   @apply 
-  inline-flex 
-  justify-center 
-  w-full 
-  rounded-md 
-
-  px-4 
-  py-2 
-  bg-white 
-  text-sm 
-  font-medium 
-  text-gray-700 
-
+  bg-red-600 
+  rounded-full 
+  w-[14px]
+  h-[14px] 
+  text-[10px] 
+  text-center 
+  flex 
+  justify-center  
+  text-zinc-50
+  absolute 
+  top-2
+  pt-[0.5px]
+  font-bold
+  left-8
 }
