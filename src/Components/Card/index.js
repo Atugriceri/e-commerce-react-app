@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { StarIcon, ShoppingCartIcon } from "@heroicons/react/solid";
-import { HeartIcon } from "@heroicons/react/outline";
+import { StarIcon, ShoppingCartIcon, HeartIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
 const Card = ({
@@ -34,23 +33,23 @@ const Card = ({
           <div>
             <p className={styles.cardTitle} title={item.title}>
               <span className={styles.brand} title="Brand">
-                Brand,{" "}
+                Brand,
               </span>
-              {item.title}
+              {" "}{item.title}
             </p>
           </div>
           <div className="flex flex-row mb-2" title={item.rating.rate}>
             {[...Array(Math.round(item.rating.rate))].map((e, i) => (
               <StarIcon
                 key={`star-${i}`}
-                className="starIcon h-4 w-4 text-amber-400 my-auto"
+                className={styles.starIcon}
                 aria-hidden="true"
               />
             ))}
             {[...Array(5 - Math.round(item.rating.rate))].map((e, i) => (
               <StarIcon
                 key={`empty-star-${i}`}
-                className="starIcon text-zinc-900/10 h-4 w-4 my-auto"
+                className={styles.emptyStarIcon}
                 aria-hidden="true"
               />
             ))}

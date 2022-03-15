@@ -1,45 +1,95 @@
+/***** CARD STYLES START *****/
 
 .card {
   @apply
   w-full
   sm:w-1/2
   md:w-1/2
-  xl:w-1/5
+  xl:w-1/4
   p-4
 }
 
 .cardLink {
   @apply
   block 
-  bg-white 
   shadow-sm
   hover:shadow-md
-  border-t
-  border-stone-500/10
+  border-2
+  border-zinc-900/10
   shadow-zinc-900/10
-  rounded-lg 
+  rounded-md 
   overflow-hidden
   h-full
 }
 
+/***** CARD HEADER STYLES START *****/
+
 .cardHeader {
   @apply 
   relative 
-  pb-96 
+  pb-64 
   overflow-hidden
   shadow-sm
 }
+
+/***** FAVORITES BUTTON STYLES START *****/
+
+.favButton {
+  @apply 
+  h-6 
+  w-6
+  m-2 
+  ml-auto  
+  text-zinc-900/80
+  hover:text-red-500 
+  flex
+}
+
+.removeFavButton {
+  @apply 
+  h-6 
+  w-6
+  m-2 
+  ml-auto  
+  text-red-500 flex
+}
+
+.heartIcon {
+  @apply 
+  h-6 
+  w-6 
+  mx-auto 
+  my-auto
+}
+
+/***** FAVORITES BUTTON STYLES END *****/
+
+/***** CARD IMAGE STYLES START *****/
 
 .cardImg {
   @apply 
   absolute 
   inset-0
-  max-h-80 
+  max-h-56
   w-full 
   object-contain
-  my-auto
+  my-4
   px-4
 }
+
+.cardLink img {
+  transition: transform .3s ease-in-out; 
+}
+
+.cardLink img:hover {
+  transform: scale(1.02)
+}
+
+/***** CARD IMAGE STYLES START *****/
+
+/***** CARD HEADER STYLES END *****/
+
+/***** CARD BODY STYLES START *****/
 
 .cardBody {
   @apply 
@@ -55,31 +105,46 @@
   mt-2 
   mb-2 
   font-bold 
-  text-sm
+  text-base
   underline
   decoration-wavy
-  decoration-zinc-900/10
-  hover:text-blue-600
+  text-zinc-900/80
+  decoration-zinc-900/50
+  hover:text-blue-500
 }
 
 .cardTitle {
   @apply 
   mt-2 
   font-light
+  text-zinc-900/80
   text-sm 
   truncate 
   mb-2
 }
 
-.cardLink img {
-  transition: transform .3s ease-in-out; 
+/***** STAR ICON STYLES START *****/
+
+.starIcon {
+  @apply 
+  h-4 
+  w-4 
+  text-amber-400 
+  my-auto
 }
 
-.cardLink img:hover {
-  transform: scale(1.02)
+.emptyStarIcon {
+  @apply 
+  text-zinc-900/80 
+  h-4 
+  w-4 
+  my-auto
 }
 
-/* Add To Cart */
+/***** STAR ICON STYLES END *****/
+
+/***** ADD TO CART BUTTON STYLES START *****/
+
 .addToCart {
   @apply
   mx-auto 
@@ -94,22 +159,15 @@
   justify-center 
   w-full
   rounded-md 
-  border 
-  border-neutral-300 
   shadow-sm
   shadow-zinc-900/10
   px-2
   py-2 
-  bg-gradient-to-l from-blue-500 via-blue-600 to-blue-500
-  text-sm 
-  font-medium 
+  bg-blue-600
   text-white
-  hover:bg-gradient-to-r 
-  hover:from-blue-500
-  hover:via-blue-700
-  hover:to-blue-500
-  hover:shadow-blue-700
-  hover:shadow-inner
+  text-sm
+  hover:bg-gradient-to-b 
+  hover:bg-yellow-300
 }
 
 .removeButton {
@@ -118,69 +176,30 @@
   justify-center 
   w-full
   rounded-md 
-  border 
-  border-neutral-300 
   shadow-sm
   shadow-zinc-900/10
   px-2
   py-2 
-  bg-gradient-to-l from-yellow-400 via-yellow-300 to-yellow-400
+  bg-red-600
   text-sm 
-  font-medium 
   text-white
-  hover:bg-gradient-to-r 
-  hover:from-amber-400
-  hover:via-yellow-300
-  hover:to-amber-400
-  hover:shadow-yellow-300
-  hover:shadow-inner
+  hover:bg-yellow-300
 }
 
 .shoppingCartIcon {
   @apply 
   my-auto 
-  h-4 
-  w-4 
-  mr-2
+  h-5 
+  w-6 
 }
 
 .buttonText {
   @apply 
-  font-light
+  font-bold
 }
 
-.favButton {
-  @apply h-10 
-  w-10 
-  ml-auto 
-  m-4 
-  shadow-sm 
-  shadow-zinc-900/10 
-  hover:shadow-md 
-  bg-zinc-300/10 
-  rounded-full 
-  text-zinc-900/10 
-  hover:text-red-500 
-  flex
-}
+/***** ADD TO CART BUTTON STYLES END *****/
 
-.removeFavButton {
-  @apply 
-  h-10 
-  w-10 
-  ml-auto 
-  m-4 
-  shadow-sm 
-  shadow-zinc-900/10 
-  bg-zinc-300/10 
-  rounded-full 
-  text-red-500 flex
-}
+/***** CARD BODY STYLES END *****/
 
-.heartIcon {
-  @apply 
-  h-8 
-  w-8 
-  mx-auto 
-  my-auto
-}
+/***** CARD STYLES END *****/
