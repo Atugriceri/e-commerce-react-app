@@ -34,32 +34,24 @@
 
 /***** FAVORITES BUTTON STYLES START *****/
 
-.favButton {
-  @apply 
+.favButton, .removeFavButton {
+  @apply
   h-6 
   w-6
   m-2 
-  ml-auto  
+  ml-auto
+}
+
+.favButton {
+  @apply 
   text-zinc-900/80
   hover:text-red-500 
   flex
 }
 
 .removeFavButton {
-  @apply 
-  h-6 
-  w-6
-  m-2 
-  ml-auto  
+  @apply   
   text-red-500 flex
-}
-
-.heartIcon {
-  @apply 
-  h-6 
-  w-6 
-  mx-auto 
-  my-auto
 }
 
 /***** FAVORITES BUTTON STYLES END *****/
@@ -98,50 +90,76 @@
   flex 
   flex-1 
   flex-col
+  text-sm
+  text-zinc-900/80
+}
+
+.cardBody .brand, .cardTitle {
+  @apply
+  mt-1
+  mb-2
 }
 
 .brand {
-  @apply 
-  mt-2 
-  mb-2 
+  @apply  
   font-bold 
-  text-base
-  underline
-  decoration-wavy
-  text-zinc-900/80
-  decoration-zinc-900/50
-  hover:text-blue-500
+  hover:text-blue-600
 }
 
 .cardTitle {
-  @apply 
-  mt-2 
-  font-light
-  text-zinc-900/80
-  text-sm 
+  @apply  
+  font-light 
   truncate 
-  mb-2
 }
 
 /***** STAR ICON STYLES START *****/
 
-.starIcon {
+.rating {
+  @apply 
+  flex 
+  flex-row 
+  mb-2
+}
+
+.rating .starIcon, .emptyStarIcon {
   @apply 
   h-4 
-  w-4 
-  text-amber-400 
+  w-4
   my-auto
+}
+
+.starIcon {
+  @apply
+  text-yellow-300 
 }
 
 .emptyStarIcon {
   @apply 
   text-zinc-900/80 
-  h-4 
-  w-4 
-  my-auto
 }
 
 /***** STAR ICON STYLES END *****/
+
+/***** PRICE STYLES START *****/
+
+.priceSub {
+  @apply 
+  font-extralight  
+  text-xs
+  inline-block
+  align-sub
+}
+
+.priceTop {
+  @apply 
+  font-normal 
+  text-lg 
+  mx-0.5
+  inline-block
+  align-text-top
+}
+
+/***** PRICE STYLES END *****/
 
 /***** ADD TO CART BUTTON STYLES START *****/
 
@@ -153,37 +171,29 @@
   mt-2
 }
 
-.addToCartButton {
-  @apply 
+.addToCartButton, .removeButton {
+  @apply
   inline-flex 
   justify-center 
   w-full
   rounded-md 
   shadow-sm
   shadow-zinc-900/10
+  text-sm
+  text-zinc-50
   px-2
   py-2 
-  bg-blue-600
-  text-white
-  text-sm
-  hover:bg-gradient-to-b 
   hover:bg-yellow-300
+}
+
+.addToCartButton {
+  @apply 
+  bg-blue-600
 }
 
 .removeButton {
   @apply 
-  inline-flex 
-  justify-center 
-  w-full
-  rounded-md 
-  shadow-sm
-  shadow-zinc-900/10
-  px-2
-  py-2 
   bg-red-600
-  text-sm 
-  text-white
-  hover:bg-yellow-300
 }
 
 .shoppingCartIcon {

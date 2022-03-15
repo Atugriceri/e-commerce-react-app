@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./styles.module.css";
-import { StarIcon, ShoppingCartIcon, HeartIcon } from "@heroicons/react/solid";
-import { Link } from "react-router-dom";
+import React from 'react'
+import styles from './styles.module.css'
+import { StarIcon, ShoppingCartIcon, HeartIcon } from '@heroicons/react/solid'
+import { Link } from 'react-router-dom'
 
 const Card = ({
   item,
@@ -34,11 +34,11 @@ const Card = ({
             <p className={styles.cardTitle} title={item.title}>
               <span className={styles.brand} title="Brand">
                 Brand,
-              </span>
-              {" "}{item.title}
+              </span>{" "}
+              {item.title}
             </p>
           </div>
-          <div className="flex flex-row mb-2" title={item.rating.rate}>
+          <div className={styles.rating} title={item.rating.rate}>
             {[...Array(Math.round(item.rating.rate))].map((e, i) => (
               <StarIcon
                 key={`star-${i}`}
@@ -58,23 +58,16 @@ const Card = ({
             </p>
           </div>
           <div>
-            <div className="mt-auto">
-              <div className="my-auto" title={`$${item.price}`}>
-                <span className="font-extralight inline-block align-text-top text-xs">
-                  $
+            <div className="my-auto" title={`$${item.price}`}>
+              <span className={styles.priceSub}>$</span>
+              <span className={styles.priceTop}>{Math.trunc(item.price)}</span>
+              {parseInt((item.price % 1).toFixed(2).substring(2)) !== 0 ? (
+                <span className={styles.priceSub}>
+                  {parseInt((item.price % 1).toFixed(2).substring(2))}
                 </span>
-                <span className="font-normal text-lg mx-0.5">
-                  {Math.trunc(item.price)}
-                </span>
-                {parseInt((item.price % 1).toFixed(2).substring(2)) !== 0 ? (
-                  <span className="font-extralight inline-block align-text-top text-xs">
-                    {parseInt((item.price % 1).toFixed(2).substring(2))}
-                  </span>
-                ) : (
-                  ""
-                )}
-              </div>
-              <div></div>
+              ) : (
+                ""
+              )}
             </div>
           </div>
           <div className={styles.addToCart}>
