@@ -1,29 +1,22 @@
-.basketMenu {
+.cartMenu {
   @apply
   relative
   text-left
   lg:inline-block
 }
 
-.basketButton {
+.cartButton {
   @apply 
   inline-flex 
   justify-center 
   w-full 
   rounded-md 
-  border 
-  border-neutral-300 
-  shadow-sm 
+
   px-4 
   py-2 
   bg-white 
   text-sm 
   font-medium 
   text-gray-700 
-  hover:bg-neutral-100
-  focus:outline-none 
-  focus:ring-offset-2 
-  focus-visible:ring-2 
-  focus-visible:ring-white 
-  focus-visible:ring-opacity-75
+
 }

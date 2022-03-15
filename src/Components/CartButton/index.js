@@ -9,17 +9,15 @@ const CartButton = () => {
 
   return (
     <div className="justify-content-center mx-auto text-center">
-      <div className={styles.basketMenu}>
-        <Link to="/cart" className={styles.basketButton}>
-          <ShoppingCartIcon className="my-auto h-10 w-10" aria-hidden="true"  />
-          <div className="flex flex-col self-center">
-            <strong>Cart 
+      <div className={styles.cartMenu}>
+        <Link to="/cart" className={styles.cartButton}>
+          <ShoppingCartIcon className="my-auto h-10 w-10 relative" aria-hidden="true"  />
+          <div className="flex flex-col self-center"> 
               {items.length > 0 && (
-               <span className="text-blue-600 ml-1">
-                 ({items.length})
+               <span className="bg-red-600 rounded-full w-4 h-4 text-xs text-center flex justify-center mx text-white absolute top-1.5 left-12">
+                 {items.length}
                </span>
             )}
-            </strong>
           </div>
         </Link>
       </div>
