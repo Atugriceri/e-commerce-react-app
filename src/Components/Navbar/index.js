@@ -14,15 +14,16 @@ import styles from "./styles.module.css";
 import CartButton from "../CartButton";
 import { useProduct } from "../../Context/ProductContext";
 
-import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
+  { name: "Login", href: "#", current: true },
+  { name: "Sign Up", href: "#", current: false },
+  { name: "Cart", href: "#", current: false },
+  { name: "Orders", href: "#", current: false },
+  { name: "Favorites", href: "#",},
+  { name: "Logout", href: "#"}
 ];
 
 function classNames(...classes) {
