@@ -2,6 +2,7 @@
   @apply
   flex 
   flex-wrap
-  mx-4
+  max-w-7xl
+  mx-auto
   my-4
 }
