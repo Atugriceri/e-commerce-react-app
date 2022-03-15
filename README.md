@@ -71,7 +71,6 @@ The project was developed in conjunction with React.js, including Context, Hooks
  -  Create a file named .env in the root of the project according to the incoming Firebase configuration and follow the steps below:
 
     ```sh
-    REACT_APP_API_KEY=
     REACT_APP_FIREBASE_API_KEY=YOUR API KEY HERE
     REACT_APP_FIREBASE_AUTH_DOMAIN=YOUR FIREBASE AUTH DOMAIN HERE
     REACT_APP_FIREBASE_PROJECT_ID=YOUR FIREBASE PROJECT ID HERE
