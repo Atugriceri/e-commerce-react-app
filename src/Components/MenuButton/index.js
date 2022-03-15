@@ -24,7 +24,7 @@ const MenuButton = () => {
         <div>
           <Menu.Button className={styles.menuButton}>
             <UserCircleIcon
-              className="mr-2 my-auto h-10 w-10"
+              className={styles.userCircleIcon}
               aria-hidden="true"
             />
             <div className="flex flex-col">
@@ -34,7 +34,7 @@ const MenuButton = () => {
               <div>or Sign Up</div>
             </div>
             <ChevronDownIcon
-              className="-mr-1 ml-2 my-auto h-8 w-8"
+              className={styles.chevronDownIcon}
               aria-hidden="true"
             />
           </Menu.Button>
@@ -49,15 +49,15 @@ const MenuButton = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
+          <Menu.Items className={styles.menuItems}>
             <div className="py-1 px-1">
               <Menu.Item>
                 {({ active }) => (
                   <Link
                     to="/signin"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <LoginIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -72,8 +72,8 @@ const MenuButton = () => {
                   <Link
                     to="/signup"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <IdentificationIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -90,8 +90,8 @@ const MenuButton = () => {
                   <a
                     href="#"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <ShoppingCartIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -106,8 +106,8 @@ const MenuButton = () => {
                   <a
                     href="#"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <ClipboardListIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -122,8 +122,8 @@ const MenuButton = () => {
                   <Link
                     to="/favorites"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <HeartIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -140,8 +140,8 @@ const MenuButton = () => {
                   <a
                     href="#"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <LogoutIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -187,15 +187,15 @@ const MenuButton = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none">
+          <Menu.Items className={styles.menuItems}>
             <div className="py-1 px-1">
               <Menu.Item>
                 {({ active }) => (
                   <Link
                     to="/signin"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <LoginIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -210,8 +210,8 @@ const MenuButton = () => {
                   <Link
                     to="/signup"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <IdentificationIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -228,8 +228,8 @@ const MenuButton = () => {
                   <a
                     href="#"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <ShoppingCartIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -244,8 +244,8 @@ const MenuButton = () => {
                   <a
                     href="#"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <ClipboardListIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -260,8 +260,8 @@ const MenuButton = () => {
                   <Link
                     to="/favorites"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <HeartIcon
                       className="mr-2 my-auto h-5 w-5"
@@ -278,8 +278,8 @@ const MenuButton = () => {
                   <a
                     href="#"
                     className={`${
-                      active ? "bg-neutral-100  text-gray-900" : "text-gray-900"
-                    } group flex rounded-md items-center w-full px-2 py-2 text-sm`}
+                      active ? "bg-zinc-400/10  text-zinc-900/80" : "text-zinc-900/80"
+                    } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
                   >
                     <LogoutIcon
                       className="mr-2 my-auto h-5 w-5"

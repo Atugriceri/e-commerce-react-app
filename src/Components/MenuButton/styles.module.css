@@ -10,21 +10,52 @@
   @apply 
   inline-flex 
   justify-center 
-  w-full 
-  rounded-md 
-  border 
-  border-neutral-300 
+  w-full  
+  border-2
+  border-zinc-900/10
+  shadow-zinc-900/10
+  rounded-md
   shadow-sm 
   px-4 
   py-2 
-  bg-white 
+  bg-transparent 
   text-sm 
   font-medium 
-  text-gray-700 
-  hover:bg-neutral-100
-  focus:outline-none 
-  focus:ring-offset-2 
-  focus-visible:ring-2 
-  focus-visible:ring-white 
-  focus-visible:ring-opacity-75
+  text-zinc-900/80 
+  hover:bg-zinc-400/10
+}
+
+.userCircleIcon {
+  @apply 
+  mr-2 
+  my-auto 
+  h-10 
+  w-10
+}
+
+.chevronDownIcon {
+  @apply 
+  -mr-1 
+  ml-2 
+  my-auto 
+  h-8 
+  w-8
+}
+
+.menuItems {
+  @apply 
+  origin-top-right 
+  absolute 
+  right-0 
+  mt-2 
+  w-full 
+  rounded-md 
+  shadow-md
+  shadow-zinc-900/10 
+  bg-zinc-50 
+  ring-2 
+  ring-zinc-900/10  
+  divide-y-2 
+  divide-zinc-900/10 
+  focus:outline-none
 }
