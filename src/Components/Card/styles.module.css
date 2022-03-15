@@ -142,6 +142,11 @@
 
 /***** PRICE STYLES START *****/
 
+.priceSub, .priceTop {
+  @apply
+  text-zinc-900/80
+}
+
 .priceSub {
   @apply 
   font-extralight  
