@@ -10,19 +10,22 @@ import styles from "./styles.module.css";
 const ProductDetail = () => {
   const { addToCart, items } = useCart();
   const { addToFavorite, favoriteItems } = useFavorite();
-  const { product, loading, setProductID } = useProduct();
-  const { product_id } = useParams();
+  const { product, loading, setProductID, productID } = useProduct();
 
+  const { product_id } = useParams();
+   
   useEffect(() => {
     setProductID(product_id);
-  }, [product_id]);
+  }, [product_id]); 
+
 
   const findCartItem = items.find((item) => item.id === product.id);
   const findFavoriteItem = favoriteItems.find((item) => item.id === product.id);
 
+
   return (
     <>
-      {loading ? (
+      {!loading ? (
         <div className="text-gray-700 body-font overflow-hidden">
           <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-3/5 mx-auto flex flex-wrap">
@@ -41,7 +44,6 @@ const ProductDetail = () => {
                 <p className="leading-relaxed border-b mb-4 border-zinc-900/10 border-offset-4 pb-6">
                   {product.description}
                 </p>
-
                 <div className="flex">
                   <div className="my-auto">
                     <span className="font-extralight text-2xl inline-block align-middle mt-2 my-auto">
