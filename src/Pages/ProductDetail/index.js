@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/solid";
 import Spinner from "../../Components/Spinner";
@@ -10,22 +10,22 @@ import styles from "./styles.module.css";
 const ProductDetail = () => {
   const { addToCart, items } = useCart();
   const { addToFavorite, favoriteItems } = useFavorite();
-  const { product, loading, setProductID, productID } = useProduct();
-
-  const { product_id } = useParams();
-   
-  useEffect(() => {
-    setProductID(product_id);
-  }, [product_id]); 
-
+  const { product, loading, setProductID } = useProduct();
 
   const findCartItem = items.find((item) => item.id === product.id);
   const findFavoriteItem = favoriteItems.find((item) => item.id === product.id);
+  
+  const { product_id } = useParams();
+  
+  useEffect(() => {
+    setProductID(product_id);
+  }, []); 
 
+  console.log(product_id)
 
   return (
     <>
-      {!loading ? (
+      {!loading && product?.id ? (
         <div className="text-gray-700 body-font overflow-hidden">
           <div className="container px-5 py-24 mx-auto">
             <div className="lg:w-3/5 mx-auto flex flex-wrap">
@@ -101,4 +101,11 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+function areEqual(prevProps, nextProps) {
+  console.log("lölö")
+  console.log(prevProps)
+  console.log(nextProps)
+  return false
+}
+
+export default React.memo(ProductDetail, areEqual) 

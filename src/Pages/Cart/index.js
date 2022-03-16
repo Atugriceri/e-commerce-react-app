@@ -52,6 +52,7 @@ const Cart = () => {
                       <img
                         className="w-32 my-auto p-4 object-contain"
                         src={item.image}
+                        alt="Cart Item"
                       />
                       <div className="flex flex-col ml-2 mt-2">
                         <Link to={`/product/${item.id}`}>

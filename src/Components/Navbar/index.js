@@ -2,29 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MenuButton from "../MenuButton";
 import {
-  UserCircleIcon,
   LoginIcon,
   IdentificationIcon,
+  ShoppingCartIcon,
   ClipboardListIcon,
   HeartIcon,
-  ShoppingCartIcon,
   LogoutIcon,
 } from "@heroicons/react/outline";
 import styles from "./styles.module.css";
 import CartButton from "../CartButton";
 import { useProduct } from "../../Context/ProductContext";
 
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import { Disclosure, } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-  { name: "Login", href: "#", current: true },
-  { name: "Sign Up", href: "#", current: false },
-  { name: "Cart", href: "#", current: false },
-  { name: "Orders", href: "#", current: false },
-  { name: "Favorites", href: "#",},
-  { name: "Logout", href: "#"}
-];
+  { name: "Login", link: "/signin", icon: <LoginIcon />, },
+  { name: "Sign Up", link: "/signup", icon: <IdentificationIcon />, },
+  { name: "Cart", link: "/cart", icon: <ClipboardListIcon />, },
+  { name: "Orders", link: "/orders", icon: <ClipboardListIcon />, },
+  { name: "Favorites", link: "/favorites", icon: <HeartIcon />, },
+  { name: "Logout", link: "/logout", icon: <LogoutIcon />, }
+]
+
+console.log(navigation)
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

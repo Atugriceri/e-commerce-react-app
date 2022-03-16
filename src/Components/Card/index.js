@@ -11,6 +11,7 @@ const Card = ({
   findCartItem,
   setProductID,
 }) => {
+
   return (
     <div key={`${item.id}-item`} className={styles.card} title={item.title}>
       <div className={styles.cardLink}>
@@ -24,7 +25,7 @@ const Card = ({
         >
           <HeartIcon className={styles.heartIcon} />
         </button>
-        <Link to={`/product/${item.id}`} onClick={() => setProductID(item.id)}>
+        <Link to={`/product/${item.id}`}>
           <div className={styles.cardHeader}>
             <img className={styles.cardImg} src={item.image} alt="" />
           </div>

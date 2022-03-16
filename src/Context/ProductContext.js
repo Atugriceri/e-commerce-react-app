@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { createContext, useContext, useEffect, useState } from 'react'
-
 const ProductContext = createContext()
 
 
@@ -9,7 +8,7 @@ export const ProductProvider = ({ children }) => {
   const [categories, setCategories] = useState()
   const [category, setCategory] = useState("/products")
   const [productID, setProductID] = useState("")
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState({})
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -51,12 +50,11 @@ export const ProductProvider = ({ children }) => {
     getProductData()
   }, [category])
 
-
   useEffect(() => {
     setLoading(true)
     const getProductDetail = async () => {   
       
-       productID && await axios.get(`https://fakestoreapi.com/products/${productID}`).then(
+       productID && productID.length > 0 && await axios.get(`https://fakestoreapi.com/products/${productID}`).then(
         (res) => {
           setProduct(res.data)
           setLoading(false)
