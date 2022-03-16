@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { createContext, useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 
 const ProductContext = createContext()
 
@@ -14,7 +13,9 @@ export const ProductProvider = ({ children }) => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     const getCategories = async () => {
+      
       let categoriesData
       await axios("https://fakestoreapi.com/products/categories").then(
         (res) =>
@@ -23,44 +24,45 @@ export const ProductProvider = ({ children }) => {
           ))
       )
       setCategories(categoriesData)
-      setLoading(true)
     }
     getCategories()
+    setLoading(false)
   }, [])
 
   useEffect(() => {
+    setLoading(true)
     const getProductData = async () => {
-      if (category && category !== undefined && category.length > 0) {
+      
+      if (category && category.length > 0) {
         await axios.get(
           `https://fakestoreapi.com/products/category/${category}`
         ).then((res) => {
           setProductList(res.data)
-          setCategory(category)
-          setLoading(true)
+          setLoading(false)
         })
       } else {
         await axios.get(`https://fakestoreapi.com/products`).then((res) => {
           setProductList(res.data)
           setCategory("")
-          setLoading(true)
+          setLoading(false)
         })
       }
     }
-    setLoading(false)
     getProductData()
   }, [category])
 
+
   useEffect(() => {
-    const getProductDetail = async () => {
-      productID && await axios.get(`https://fakestoreapi.com/products/${productID}`).then(
+    setLoading(true)
+    const getProductDetail = async () => {   
+      
+       productID && await axios.get(`https://fakestoreapi.com/products/${productID}`).then(
         (res) => {
           setProduct(res.data)
-          setProductID(res.data.id)
-          setLoading(true)
+          setLoading(false)
         }
       )
     }
-    setLoading(false)
     getProductDetail()
   }, [productID])
 
