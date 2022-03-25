@@ -11,4 +11,5 @@ body {
   font-family: 'Inter', sans-serif;
   @apply
   bg-zinc-50/10
+  text-zinc-900/80 
 }

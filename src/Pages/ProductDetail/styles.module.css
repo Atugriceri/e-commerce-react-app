@@ -81,3 +81,27 @@
   mx-auto 
   my-auto
 }
+
+.rating {
+  @apply 
+  flex 
+  flex-row 
+  mb-2
+}
+
+.rating .starIcon, .emptyStarIcon {
+  @apply 
+  h-4 
+  w-4
+  my-auto
+}
+
+.starIcon {
+  @apply
+  text-yellow-300 
+}
+
+.emptyStarIcon {
+  @apply 
+  text-zinc-900/80 
+}

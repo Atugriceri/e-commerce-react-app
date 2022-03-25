@@ -1,35 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import MenuButton from "../MenuButton";
+import MenuButton from "./MenuButton";
+import CartButton from "./CartButton";
 import {
   LoginIcon,
   IdentificationIcon,
+  UserIcon,
   ShoppingCartIcon,
   ClipboardListIcon,
   HeartIcon,
   LogoutIcon,
 } from "@heroicons/react/outline";
 import styles from "./styles.module.css";
-import CartButton from "../CartButton";
 import { useProduct } from "../../Context/ProductContext";
 
 import { Disclosure, } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
 const navigation = [
-  { name: "Login", link: "/signin", icon: <LoginIcon />, },
-  { name: "Sign Up", link: "/signup", icon: <IdentificationIcon />, },
+  { name: "Login", link: "/signin", icon: <LoginIcon />, loggedIn: false },
+  { name: "Sign Up", link: "/signup", icon: <IdentificationIcon />, loggedIn: false },
+  { name: "Profile", link: "/profile", icon: <UserIcon />, loggedIn: true },
   { name: "Cart", link: "/cart", icon: <ClipboardListIcon />, },
   { name: "Orders", link: "/orders", icon: <ClipboardListIcon />, },
   { name: "Favorites", link: "/favorites", icon: <HeartIcon />, },
-  { name: "Logout", link: "/logout", icon: <LogoutIcon />, }
+  { name: "Logout", link: "/logout", icon: <LogoutIcon />, loggedIn: true }
 ]
 
-console.log(navigation)
-
-function classNames(...classes) {
+/* function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
-}
+} */
 
 const Navbar = () => {
   const { categories, setCategory } = useProduct();
@@ -55,8 +55,9 @@ const Navbar = () => {
                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                   <div className={styles.logo}>
                     <Link className={styles.link} to="/">
-                      <div className={styles.logoBox}></div>
+                      <div className={styles.logoBox}>
                       <h1 className={styles.logoText}>LOGO</h1>
+                      </div>
                     </Link>
                   </div>
                   <div className="hidden sm:block sm:ml-6"></div>

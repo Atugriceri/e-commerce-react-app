@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ShoppingCartIcon, HeartIcon } from "@heroicons/react/solid";
+import { ShoppingCartIcon, HeartIcon, StarIcon } from "@heroicons/react/solid";
 import Spinner from "../../Components/Spinner";
 import { useProduct } from "../../Context/ProductContext";
 import { useCart } from "../../Context/CartContext";
@@ -14,14 +14,12 @@ const ProductDetail = () => {
 
   const findCartItem = items.find((item) => item.id === product.id);
   const findFavoriteItem = favoriteItems.find((item) => item.id === product.id);
-  
+
   const { product_id } = useParams();
   
   useEffect(() => {
     setProductID(product_id);
-  }, []); 
-
-  console.log(product_id)
+  }, [])
 
   return (
     <>
@@ -41,6 +39,25 @@ const ProductDetail = () => {
                 <h1 className="text-gray-900 text-2xl title-font font-bold tracking-tight mb-1">
                   {product.title}
                 </h1>
+                <div className={styles.rating} title={product?.rating?.rate}>
+            {[...Array(Math.round(product?.rating?.rate))].map((e, i) => (
+              <StarIcon
+                key={`star-${i}`}
+                className={styles.starIcon}
+                aria-hidden="true"
+              />
+            ))}
+            {[...Array(5 - Math.round(product?.rating?.rate))].map((e, i) => (
+              <StarIcon
+                key={`empty-star-${i}`}
+                className={styles.emptyStarIcon}
+                aria-hidden="true"
+              />
+            ))}
+            <p className="text-xs ml-1 font-light mt-0.5">
+              ({product?.rating?.count})
+            </p>
+          </div>
                 <p className="leading-relaxed border-b mb-4 border-zinc-900/10 border-offset-4 pb-6">
                   {product.description}
                 </p>
@@ -101,11 +118,4 @@ const ProductDetail = () => {
   );
 };
 
-function areEqual(prevProps, nextProps) {
-  console.log("lölö")
-  console.log(prevProps)
-  console.log(nextProps)
-  return false
-}
-
-export default React.memo(ProductDetail, areEqual) 
+export default ProductDetail

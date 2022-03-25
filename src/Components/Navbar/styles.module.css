@@ -40,8 +40,8 @@
   @apply
   tracking-widest
   text-black
-  hover:border-x-4
-  hover:border-blue-600
+  md:hover:border-x-4
+  md:hover:border-yellow-300
   decoration-dashed
   px-6
   py-2
@@ -59,10 +59,11 @@
   @apply
   text-3xl text-yellow-300 ml-2 my-auto
   tracking-widest
+  
 }
 
 .logoBox {
-  @apply bg-gradient-to-b from-blue-600 via-blue-700 to-blue-600 w-10 h-10 rounded-md
+  @apply bg-gradient-to-b from-blue-600 via-blue-700 to-blue-600 w-[5.6rem] h-10 rounded-md
 }
 
 .disclosurePanel {

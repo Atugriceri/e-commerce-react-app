@@ -1,3 +1,12 @@
+.cardGroup {
+  @apply
+  flex 
+  flex-wrap 
+  max-w-7xl 
+  mx-auto 
+  my-4
+}
+
 .continueButton {
   @apply
   mx-auto 
@@ -61,10 +70,3 @@
   h-full
 }
 
-.cardGroup {
-  @apply
-  flex 
-  flex-wrap
-  mx-4
-  my-4
-}

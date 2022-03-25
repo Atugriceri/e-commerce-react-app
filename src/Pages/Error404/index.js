@@ -5,7 +5,7 @@ import React from 'react'
 
 const Error404 = () => {
   return (
-    <div className="flex flex-wrap mx-4 my-4">
+    <div className="flex flex-wrap max-w-7xl mx-auto my-4">
           <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 h-[500px] my-auto">
             <div className={styles.cardBg}>
               <ExclamationCircleIcon className="h-40 w-40 mx-auto mt-10" />

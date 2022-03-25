@@ -1,98 +1,145 @@
-import { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { useAuth } from '../../../Context/AuthContext'
+import { IdentificationIcon } from "@heroicons/react/outline";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../../Context/AuthContext";
+import styles from "./styles.module.css";
+import validations from "./validations";
 
 const Signup = () => {
+  const {
+    currentUser,
+    setCurrentUser,
+    users,
+    loading,
+    setLoading,
+    loggedIn,
+    errors,
+    setErrors,
+    setIsSubmitting
+  } = useAuth();
 
-  const { currentUser, signup, logout, setCurrentUser  } = useAuth()
-
-  const emailRef = useRef()
-  const passwordRef = useRef()
+  const navigate = useNavigate();
   
-  const [fullName, setFullName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
-  const [loading, setLoading] = useState(false)
-  
+  useEffect(() => {
+    loggedIn && navigate('/')
+  }, [loggedIn])
 
-  const handleSignUp = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      await signup(emailRef.current.value, passwordRef.current.value)
-    } catch {
-        alert("Error!")
-    }
-    setLoading(false)
+  const handleSignUpFormChange = (e) => {
+    setCurrentUser({ ...currentUser, [e.target.name]: e.target.value })
   }
 
-  const handleLogout = async () => {
-    setLoading(true)
-    try { 
-      await logout()
-    } catch {
-      alert("Error")
-    }
-    setLoading(false)
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault()
+    setErrors(validations(currentUser, users))
+    console.log(users)
+    localStorage.setItem('user', JSON.stringify(currentUser))
+    localStorage.setItem('users', JSON.stringify(users))
+    setIsSubmitting(true)
   }
 
   return (
-    <div>
-      <p>{currentUser?.email}</p>
-      <h1>Sign Up</h1>
-      <form 
-        autoComplete="off"
-        onSubmit={handleSignUp}
-      >
-
-        <label>Full Name</label>
-        <input 
-          type="text" 
-          className="border-2" 
-          onChange={(e) => setFullName(e.target.value)}
-          value={fullName}
-          required
-        />
-
-        <label>Email</label>
-        <input 
-          type="email" 
-          className="border-2" 
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          ref={emailRef}
-          required
-        />
-
-        <label>Password</label>
-        <input 
-          type="Password" 
-          className="border-2"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password} 
-          ref={passwordRef}
-          required
-        />
-
-        <label>Password Confirm</label>
-        <input 
-          type="Password" 
-          className="border-2"
-          onChange={(e) => setPasswordConfirm(e.target.value)}
-          value={passwordConfirm} 
-          required
-        />
-
+    <div className={styles.formGroupContainer}>
+      <div className={styles.formGroup}>
         <div>
-          <span>Already have an account? <Link to="/signin">Login</Link></span>
-          <button disabled={loading || currentUser} type="submit">Sign Up</button>
-
-          <button disabled={loading || !currentUser} onClick={handleLogout}>Logout</button>
+          <h2 className={styles.title}>Sign Up</h2>
         </div>
-      </form>
-    </div>
-  )
-}
+        <form
+          autoComplete="off"
+          onSubmit={handleSignUpSubmit}
+          className={styles.signUpForm}
+        >
+          <div className={styles.inputGroup}>
+            <div>
+            {errors.firstName && <span className={styles.error}>{errors.firstName}</span>}
+              <label className="sr-only">First Name</label>
+              <input
+                type="text"
+                className={styles.input}
+                onChange={handleSignUpFormChange}
+                value={currentUser.firstName}
+                name="firstName"
+                placeholder="First Name"
+              />
+              
+            </div>
 
-export default Signup
+            <div>
+            {errors.lastName && <span className={styles.error}>{errors.lastName}</span>}
+              <label className="sr-only">Last Name</label>
+              <input
+                type="text"
+                className={styles.input}
+                onChange={handleSignUpFormChange}
+                value={currentUser.lastName}
+                name="lastName"
+                placeholder="Last Name"
+              />
+              
+            </div>
+            <div>
+            {errors.email && <span className={styles.error}>{errors.email}</span>}
+              <label className="sr-only">Email</label>
+              <input
+                type="email"
+                className={styles.input}
+                onChange={handleSignUpFormChange}
+                value={currentUser.email}
+                name="email"
+                placeholder="Email Address"
+              />
+              
+            </div>
+            <div>
+            {errors.password && <span className={styles.error}>{errors.password}</span>}
+              <label className="sr-only">Password</label>
+              <input
+                type="Password"
+                className={styles.input}
+                onChange={handleSignUpFormChange}
+                value={currentUser.password}
+                name="password"
+                placeholder="Password"
+              />
+              
+            </div>
+            <div>
+            {errors.passwordConfirm && <span className={styles.error}>{errors.passwordConfirm}</span>}
+              <label className="sr-only">Password Confirm</label>
+              <input
+                type="Password"
+                className={styles.input}
+                onChange={handleSignUpFormChange}
+                value={currentUser.passwordConfirm}
+                name="passwordConfirm"
+                placeholder="Password Confirm"
+              />
+              
+            </div>
+            <div className={styles.linkBox}>
+              <div className={styles.linkDiv}>
+                <span>
+                  Already have an account? Login{" "}
+                  <Link to="/signin" className="text-blue-600 hover:underline">
+                    {" "}
+                    here.
+                  </Link>
+                </span>
+              </div>
+            </div>
+            <div className="text-center">
+              <button type="submit" className={styles.button}>
+                <IdentificationIcon
+                  className="my-auto h-5 w-6"
+                  aria1-hidden="true"
+                />
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;

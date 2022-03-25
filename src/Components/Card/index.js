@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './styles.module.css'
 import { StarIcon, ShoppingCartIcon, HeartIcon } from '@heroicons/react/solid'
 import { Link } from 'react-router-dom'
@@ -6,10 +5,9 @@ import { Link } from 'react-router-dom'
 const Card = ({
   item,
   addToFavorite,
-  addToCart,
   findFavoriteItem,
+  addToCart,
   findCartItem,
-  setProductID,
 }) => {
 
   return (
@@ -20,7 +18,7 @@ const Card = ({
             !findFavoriteItem ? styles.favButton : styles.removeFavButton
           }
           onClick={() => {
-            addToFavorite(item, findFavoriteItem);
+            addToFavorite(item, findFavoriteItem)
           }}
         >
           <HeartIcon className={styles.heartIcon} />
@@ -92,7 +90,7 @@ const Card = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

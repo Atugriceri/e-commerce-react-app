@@ -12,8 +12,8 @@ const Cart = () => {
   return (
     <div>
       {items.length < 1 && (
-        <div className="flex flex-wrap mx-4 my-4">
-          <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 h-[500px] my-auto">
+        <div className="flex flex-wrap max-w-7xl mx-auto my-4">
+        <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 h-[500px] my-auto">
             <div className={styles.cardBg}>
               <ShoppingCartIcon className="h-40 w-40 mx-auto mt-10" />
               <p className="text-xl font-extralight tracking-widest text-center pt-6">
@@ -39,7 +39,7 @@ const Cart = () => {
       )}
 
       {items.length > 0 && (
-        <div className="flex flex-wrap mx-4 my-4">
+        <div className="flex flex-wrap max-w-7xl mx-auto my-4">
           <div className="flex flex-col flex-1">
             {items.map((item) => {
               return (

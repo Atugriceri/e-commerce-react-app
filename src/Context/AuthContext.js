@@ -1,63 +1,69 @@
 import { createContext, useState, useEffect, useContext } from 'react'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
-import { auth } from "../Firebase"
+import {useNavigate } from 'react-router-dom'
 
 const AuthContext = createContext()
 
+const defaultUser = JSON.parse(localStorage.getItem('user')) || {}
+const defaultUsers = JSON.parse(localStorage.getItem('users')) || []
+
 const AuthProvider = ({children}) => {
-
-  const [currentUser, setCurrentUser] = useState(null)
+  const [users, setUsers] = useState(defaultUsers)
+  const [currentUser, setCurrentUser] = useState(defaultUser)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
-  const [loading, setLoading] = useState(true)
-  const [role, setRole] = useState("")
+  const [errors, setErrors] = useState({})
 
-  const signup = (email, password) => {
-    setLoggedIn(true)
-    return (
-      createUserWithEmailAndPassword(auth, email, password)
-    )
+  
+
+  const signup = (currentUser) => {
+    if(Object.keys(errors).length === 0) {
+      setUsers([currentUser, ...users])
+      
+      setLoggedIn(true)
+    }
   }
 
-  const login = (email, password) => {
+  const login = () => {
     setLoggedIn(true)
-    return (
-      signInWithEmailAndPassword(auth, email, password)
-    )
+
   }
 
   const logout = () => {
+    localStorage.removeItem('user')
     setLoggedIn(false)
-    return (
-      signOut(auth)
-    )
   }
 
   useEffect(() => {
-
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      localStorage.setItem("userUid", user?.uid)
-      localStorage.getItem("userUid") === "YdZ05iQ6BChuwOdggeYM0bbkqaA3" && loggedIn ? setRole('admin') : setRole('simpleUser')
-      setCurrentUser(user)
-      setLoading(false)
-      user ? setLoggedIn(true) : setLoggedIn(false)
-    })
+    const user = JSON.parse(localStorage.getItem('user')) || {}
     
-    return () => unsubscribe()
+    if(!Object.values(user).every(item => !item.length && users.some((item) => item.email === currentUser.email))) {
+      setCurrentUser(user)
+      setUsers([...users, currentUser])
+      setLoggedIn(true)
+    }
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      setLoggedIn(true)
+    }
 
-  }, [])
+  }, [errors])
+
 
   const value = {
     currentUser,
+    setCurrentUser,
+    users,
     loggedIn,
-    login,
     signup,
+    errors,
+    loggedIn,
+    setErrors,
+    setIsSubmitting,
     logout,
-    role,
   }
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   )
 }

@@ -33,7 +33,7 @@
   tracking-wide
 }
 
-.signInForm {
+.signUpForm {
   @apply
   mt-8
   space-y-6
@@ -53,7 +53,7 @@
   relative 
   block 
   w-full
-  mb-5
+  mb-4
   px-3 
   py-2 
   border 
@@ -78,6 +78,7 @@
   shadow-sm
   shadow-zinc-900/10
   text-sm
+  font-bold
   text-zinc-50
   px-2
   py-2
@@ -99,4 +100,12 @@
   mx-auto
 }
 
-
+.error {
+  @apply
+  text-xs
+  text-red-500
+  inline-block
+  mx-auto
+  my-0
+  py-0
+}

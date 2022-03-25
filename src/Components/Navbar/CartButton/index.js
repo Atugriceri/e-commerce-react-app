@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 import { ShoppingCartIcon } from "@heroicons/react/outline"
-import { useCart } from '../../Context/CartContext'
+import { useCart } from '../../../Context/CartContext'
 
 const CartButton = () => {
   const {items} = useCart()
