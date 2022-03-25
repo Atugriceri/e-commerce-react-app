@@ -57,7 +57,6 @@ The project was developed in conjunction with React.js, including Context, Hooks
 * [Tailwind CSS](https://tailwindui.com/)
 * [Axios](https://www.npmjs.com/package/axios)
 * [Fake Store Api](https://fakestoreapi.com/)
-* [Firebase](https://firebase.google.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -65,21 +64,7 @@ The project was developed in conjunction with React.js, including Context, Hooks
 <!-- GETTING STARTED -->
 ## Getting Started
 
- -  Sign up to [https://firebase.google.com/](https://firebase.google.com/) with your e-mail and add a Firebase project.  
  -  Fork the project and clone it locally.
- -  Add Firebase to your web application.
- -  Create a file named .env in the root of the project according to the incoming Firebase configuration and follow the steps below:
-
-    ```sh
-    REACT_APP_FIREBASE_API_KEY=YOUR API KEY HERE
-    REACT_APP_FIREBASE_AUTH_DOMAIN=YOUR FIREBASE AUTH DOMAIN HERE
-    REACT_APP_FIREBASE_PROJECT_ID=YOUR FIREBASE PROJECT ID HERE
-    REACT_APP_FIREBASE_STORAGE_BUCKET=YOUR FIREBASE STORAGE BUCKET HERE
-    REACT_APP_FIREBASE_MESSAGING_SENDER_ID=YOUR FIREBASE MESSAGING SENDER ID HERE
-    REACT_APP_FIREBASE_APP_ID=YOUR FIREBASE APP ID HERE
-    ```
- 
- -  In Firebase, from the Authentication tab, set the Sign-in provider as Email/Password.
  -  In the project directory, ou can follow the steps below to download the dependencies:
      - Install with npm:
      ```sh
