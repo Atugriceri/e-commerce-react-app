@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom'
 import { HeartIcon } from '@heroicons/react/outline'
 import styles from './styles.module.css'
 import { useFavorite } from '../../Context/FavoriteContext'
+import { useCart } from '../../Context/CartContext'
 import Card from '../../Components/Card'
 
 const Favorites = () => {
   const { favoriteItems, addToFavorite } = useFavorite()
+  const { addToCart, items } = useCart()
 
   return (
     <div>
@@ -43,12 +45,15 @@ const Favorites = () => {
             const findFavoriteItem = favoriteItems.find(
               (fav_item) => fav_item.id === item.id
             )
+            const findCartItem = items.find((cart_item) => cart_item.id === item.id)
             return (
               <Card
                 item={item}
                 findFavoriteItem={findFavoriteItem}
                 favoriteItems={favoriteItems}
                 addToFavorite={addToFavorite}
+                addToCart={addToCart}
+                findCartItem={findCartItem}
               />
             )
           })}
