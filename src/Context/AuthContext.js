@@ -28,7 +28,6 @@ const AuthProvider = ({ children }) => {
       setCurrentUser(finalUser)
       setLoggedIn(true)
       localStorage.setItem("user", JSON.stringify(finalUser))
-      console.log(currentUser)
     }
   }
 
@@ -46,13 +45,14 @@ const AuthProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    console.log(Object.keys(errors).length)
+    const isEmpty = Object.values(currentUser).every(value => value ? true : false)
     if(Object.keys(errors).length > 0) {
+      setLoggedIn(false)
+    } else if (!isEmpty) {
       setLoggedIn(false)
     } else {
       const userData = [...users, currentUser]
       setUsers(userData)
-      console.log(users)
       localStorage.setItem("users", JSON.stringify(userData))
       localStorage.setItem("user", JSON.stringify(currentUser))
       setLoggedIn(true)
