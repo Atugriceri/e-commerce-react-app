@@ -1,38 +1,27 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import MenuButton from "./MenuButton";
-import CartButton from "./CartButton";
-import {
-  LoginIcon,
-  IdentificationIcon,
-  UserIcon,
-  ShoppingCartIcon,
-  ClipboardListIcon,
-  HeartIcon,
-  LogoutIcon,
-} from "@heroicons/react/outline";
-import styles from "./styles.module.css";
-import { useProduct } from "../../Context/ProductContext";
-
-import { Disclosure, } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
-
-const navigation = [
-  { name: "Login", link: "/signin", icon: <LoginIcon />, loggedIn: false },
-  { name: "Sign Up", link: "/signup", icon: <IdentificationIcon />, loggedIn: false },
-  { name: "Profile", link: "/profile", icon: <UserIcon />, loggedIn: true },
-  { name: "Cart", link: "/cart", icon: <ClipboardListIcon />, },
-  { name: "Orders", link: "/orders", icon: <ClipboardListIcon />, },
-  { name: "Favorites", link: "/favorites", icon: <HeartIcon />, },
-  { name: "Logout", link: "/logout", icon: <LogoutIcon />, loggedIn: true }
-]
-
-/* function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-} */
+import React from 'react'
+import { Link } from 'react-router-dom'
+import MenuButton from './MenuButton'
+import CartButton from './CartButton'
+import styles from './styles.module.css'
+import { useProduct } from '../../Context/ProductContext'
+import { useAuth } from '../../Context/AuthContext'
+import { Disclosure, } from '@headlessui/react'
+import { MenuIcon, XIcon, LogoutIcon } from '@heroicons/react/outline'
+import NAVIGATION from '../../Config/navbarItemList'
 
 const Navbar = () => {
-  const { categories, setCategory } = useProduct();
+  const { categories, setCategory } = useProduct()
+  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth()
+
+  const handleLogout = async () => {
+    setIsSubmitting(true)
+    try {
+      await logout()
+    } catch {
+      alert("Error")
+    }
+    setIsSubmitting(false)
+  }
 
   return (
     <>
@@ -43,12 +32,12 @@ const Navbar = () => {
               <div className="relative flex items-center justify-between h-16">
                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                   {/* Mobile menu button*/}
-                  <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <Disclosure.Button className="inline-flex items-center justify-center p-2">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
-                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                      <XIcon className="block h-9 w-9" aria-hidden="true" />
                     ) : (
-                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                      <MenuIcon className="block h-9 w-9" aria-hidden="true" />
                     )}
                   </Disclosure.Button>
                 </div>
@@ -75,64 +64,67 @@ const Navbar = () => {
             </div>
 
             <Disclosure.Panel className={styles.disclosurePanel}>
-              <div className="px-2 pt-2 pb-3">
-                <Link to="/signin">
-                  <Disclosure.Button className="bg-zinc-50 hover:bg-zinc-400/10 text-zinc-900/80 group  rounded-md items-center w-full px-2 py-2 text-sm font-medium flex mb-1">
-                    <LoginIcon
-                      className="mr-2 my-auto h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    Login
-                  </Disclosure.Button>
-                </Link>
-                <Link to="/signup">
-                  <Disclosure.Button className="bg-zinc-50 hover:bg-zinc-400/10 text-zinc-900/80 group  rounded-md items-center w-full px-2 py-2 text-sm font-medium flex mb-1">
-                    <IdentificationIcon
-                      className="mr-2 my-auto h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    Sign Up
-                  </Disclosure.Button>
-                </Link>
-                <div className="rounded-md py-[0.8px] flex bg-zinc-900/10 my-1"></div>
-                <Link to="/cart">
-                  <Disclosure.Button className="bg-zinc-50 hover:bg-zinc-400/10 text-zinc-900/80 group rounded-md items-center w-full px-2 py-2 text-sm font-medium flex mb-1">
-                    <ShoppingCartIcon
-                      className="mr-2 my-auto h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    Cart
-                  </Disclosure.Button>
-                </Link>
-                <Link to="/">
-                  <Disclosure.Button className="bg-zinc-50 hover:bg-zinc-400/10 text-zinc-900/80 group  rounded-md items-center w-full px-2 py-2 text-sm font-medium flex mb-1">
-                  <ClipboardListIcon
-                      className="mr-2 my-auto h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    Orders
-                  </Disclosure.Button>
-                </Link>
-                <Link to="/favorites">
-                  <Disclosure.Button className="bg-zinc-50 hover:bg-zinc-400/10 text-zinc-900/80 group  rounded-md items-center w-full px-2 py-2 text-sm font-medium flex mb-1">
-                  <HeartIcon
-                      className="mr-2 my-auto h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    Favorites
-                  </Disclosure.Button>
-                </Link>
-                <div className="rounded-md py-[0.8px] flex bg-zinc-900/10 my-1"></div>
-                <Link to="/">
-                
-                  <Disclosure.Button className="bg-zinc-50 hover:bg-zinc-400/10 text-zinc-900/80 group  rounded-md items-center w-full px-2 py-2 text-sm font-medium flex mb-1">
-                  <LogoutIcon
-                      className="mr-2 my-auto h-5 w-5"
-                      aria-hidden="true"
-                    />
-                    Logout
-                  </Disclosure.Button>
-                </Link>
+              <div>
+                {!loggedIn && NAVIGATION.map(({
+                      id,
+                      name,
+                      link,
+                      icon,
+                      underlined,
+                      loggedIn,
+                      onclick,
+                    }) => (
+                      <Link 
+                        to={link}
+                        onClick={onclick ? onclick : null}
+                        className={`${
+                          !loggedIn || loggedIn === "public" || "hidden"
+                        }`}
+                        key={`${name}-00${id}`}
+                      >
+                      <Disclosure.Button className={`${styles.disclosureButton} ${underlined ? "border-b-2 border-zinc-900/10" : ""}`}>
+                        {icon}
+                        {name}
+                      </Disclosure.Button>
+                      </Link>
+                    ))}
+                    {loggedIn && NAVIGATION.map(({
+                      id,
+                      name,
+                      link,
+                      icon,
+                      underlined,
+                      loggedIn,
+                      onclick,
+                    }) => (
+                      <Link 
+                        to={link}
+                        onClick={onclick ? onclick : null}
+                        className={`${
+                          loggedIn || loggedIn === "public" || "hidden"
+                        }`}
+                        key={`${name}-00${id}`}
+                      >
+                      <Disclosure.Button className={`${styles.disclosureButton} ${underlined ? "border-b-2 border-zinc-900/10" : ""}`}>
+                        {icon}
+                        {name}
+                      </Disclosure.Button>
+                      </Link>
+                    ))}
+                    {loggedIn && (
+                      <Link 
+                      to="/"
+                      onClick={handleLogout}
+                    >
+                    <Disclosure.Button className={styles.disclosureButton}>
+                      <LogoutIcon
+                        className="mr-2 my-auto h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      Logout
+                    </Disclosure.Button>
+                    </Link>
+                    )}
                 
               </div>
             </Disclosure.Panel>

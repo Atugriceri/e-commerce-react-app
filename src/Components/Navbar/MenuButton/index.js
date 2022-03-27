@@ -1,95 +1,27 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/solid";
+import { Fragment } from 'react'
+import { Link } from 'react-router-dom'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/solid'
 import {
   UserCircleIcon,
-  LoginIcon,
-  IdentificationIcon,
-  UserIcon,
-  ClipboardListIcon,
-  HeartIcon,
-  ShoppingCartIcon,
   LogoutIcon,
-} from "@heroicons/react/outline";
-import styles from "./styles.module.css";
-import { useAuth } from "../../../Context/AuthContext";
+} from '@heroicons/react/outline'
+import styles from './styles.module.css'
+import { useAuth } from '../../../Context/AuthContext'
+import NAVIGATION from '../../../Config/navbarItemList'
 
 const MenuButton = () => {
-  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth();
-
-  const navigation = [
-    {
-      id: 1,
-      name: "Login",
-      link: "/signin",
-      icon: <LoginIcon className="mr-2 my-auto h-5 w-5" aria-hidden="true" />,
-      loggedIn: false,
-      underlined: false,
-    },
-    {
-      id: 2,
-      name: "Sign Up",
-      link: "/signup",
-      icon: (
-        <IdentificationIcon
-          className="mr-2 my-auto h-5 w-5"
-          aria-hidden="true"
-        />
-      ),
-      loggedIn: false,
-      underlined: true,
-    },
-    {
-      id: 3,
-      name: "Profile",
-      link: "/profile",
-      icon: <UserIcon className="mr-2 my-auto h-5 w-5" aria-hidden="true" />,
-      loggedIn: true,
-      underlined: true,
-    },
-    {
-      id: 4,
-      name: "Cart",
-      link: "/cart",
-      icon: (
-        <ShoppingCartIcon className="mr-2 my-auto h-5 w-5" aria-hidden="true" />
-      ),
-      loggedIn: "public",
-      underlined: false,
-    },
-    {
-      id: 5,
-      name: "Orders",
-      link: "/orders",
-      icon: (
-        <ClipboardListIcon
-          className="mr-2 my-auto h-5 w-5"
-          aria-hidden="true"
-        />
-      ),
-      loggedIn: true,
-      underlined: false,
-    },
-    {
-      id: 6,
-      name: "Favorites",
-      link: "/favorites",
-      icon: <HeartIcon className="mr-2 my-auto h-5 w-5" aria-hidden="true" />,
-      loggedIn: "public",
-      underlined: true,
-    },
-  ];
+  const { loggedIn, currentUser, setIsSubmitting, logout } = useAuth()
 
   const handleLogout = async () => {
-    setIsSubmitting(true);
+    setIsSubmitting(true)
     try {
-      await logout();
+      await logout()
     } catch {
-      alert("Error");
+      alert("Error")
     }
-    setIsSubmitting(false);
-  };
+    setIsSubmitting(false)
+  }
 
   return (
     <div className="justify-content-center mx-auto text-center">
@@ -126,7 +58,7 @@ const MenuButton = () => {
             <Menu.Items className={styles.menuItems}>
               <div>
                 {!loggedIn &&
-                  navigation.map(
+                  NAVIGATION.map(
                     ({
                       id,
                       name,
@@ -145,7 +77,6 @@ const MenuButton = () => {
                           >
                             <Link
                               to={link}
-                              onClick={onclick ? onclick : null}
                               className={`${
                                 active
                                   ? "bg-zinc-400/10  text-zinc-900/80"
@@ -203,7 +134,7 @@ const MenuButton = () => {
             <Menu.Items className={styles.menuItems}>
               <div>
                 {loggedIn &&
-                  navigation.map(
+                  NAVIGATION.map(
                     ({
                       id,
                       name,
@@ -222,7 +153,6 @@ const MenuButton = () => {
                           >
                             <Link
                               to={link}
-                              onClick={onclick ? onclick : null}
                               className={`${
                                 active
                                   ? "bg-zinc-400/10  text-zinc-900/80"
@@ -269,7 +199,7 @@ const MenuButton = () => {
         </Menu>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default MenuButton;
+export default MenuButton

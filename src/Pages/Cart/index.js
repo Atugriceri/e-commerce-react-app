@@ -56,8 +56,8 @@ const Cart = () => {
                       />
                       <div className="flex flex-col ml-2 mt-2">
                         <Link to={`/product/${item.id}`}>
-                          <h2 className="text-sm title-font text-zinc-900 tracking-widest underline underline-offset-2 decoration-zinc-900/20 decoration-wavy mb-2 hover:text-blue-600">
-                            BRAND
+                          <h2 className="text-sm title-font text-zinc-900 tracking-widest hover:text-blue-600 mt-2">
+                            Brand
                           </h2>
                           <p className="font-extralight">{item.title}</p>
                         </Link>

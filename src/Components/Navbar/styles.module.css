@@ -57,13 +57,38 @@
 .logoText {
   font-family: 'Oswald', sans-serif;
   @apply
-  text-3xl text-yellow-300 ml-2 my-auto
+  text-3xl 
+  text-yellow-300 
+  ml-2 
+  my-auto
   tracking-widest
   
 }
 
+.disclosureButton {
+  @apply
+  bg-zinc-50 
+  hover:bg-zinc-400/10 
+  text-zinc-900/80 
+  items-center 
+  w-full
+  py-2 
+  px-2
+  text-sm 
+  font-medium 
+  flex 
+}
+
+
 .logoBox {
-  @apply bg-gradient-to-b from-blue-600 via-blue-700 to-blue-600 w-[5.6rem] h-10 rounded-md
+  @apply 
+  bg-gradient-to-b 
+  from-blue-600 
+  via-blue-700 
+  to-blue-600 
+  w-[5.6rem] 
+  h-10 
+  rounded-md
 }
 
 .disclosurePanel {
