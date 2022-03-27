@@ -1,24 +1,22 @@
-import { IdentificationIcon } from "@heroicons/react/outline";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../../../Context/AuthContext";
-import styles from "./styles.module.css";
-import validations from "./validations";
+import { IdentificationIcon } from '@heroicons/react/outline'
+import { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../Context/AuthContext'
+import styles from './styles.module.css'
+import validations from './validations'
 
 const Signup = () => {
   const {
     currentUser,
     setCurrentUser,
     users,
-    loading,
-    setLoading,
     loggedIn,
     errors,
     setErrors,
     setIsSubmitting
-  } = useAuth();
+  } = useAuth()
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   
   useEffect(() => {
     loggedIn && navigate('/')
@@ -30,11 +28,10 @@ const Signup = () => {
 
   const handleSignUpSubmit = (e) => {
     e.preventDefault()
-    setErrors(validations(currentUser, users))
-    console.log(users)
+    setErrors(validations(currentUser, users)) 
+    setIsSubmitting(true)
     localStorage.setItem('user', JSON.stringify(currentUser))
     localStorage.setItem('users', JSON.stringify(users))
-    setIsSubmitting(true)
   }
 
   return (
@@ -139,7 +136,7 @@ const Signup = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

@@ -1,29 +1,35 @@
-/* import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../../../Context/AuthContext";
-import styles from "./styles.module.css";
-import { LoginIcon } from "@heroicons/react/outline";
+import { useState, useEffect, useRef } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../../../Context/AuthContext'
+import styles from './styles.module.css'
+import { LoginIcon } from '@heroicons/react/outline'
 
 const Signin = () => {
-  const { currentUser, login, setCurrentUser } = useAuth();
 
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const { currentUser, login, setCurrentUser, setIsSubmitting, loggedIn } = useAuth()
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const emailRef = useRef()
+  const passwordRef = useRef()
 
   const handleSignIn = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+    e.preventDefault()
+    setIsSubmitting(true)
     try {
-      await login(emailRef.current.value, passwordRef.current.value);
+      await login(emailRef.current.value, passwordRef.current.value)
     } catch {
-      alert("Error!");
+      alert("Error!")
     }
-    setLoading(false);
-  };
+    setIsSubmitting(false)
+  }
+
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    loggedIn && navigate('/')
+  }, [loggedIn])
 
   return (
     <div className={styles.formGroupContainer}>
@@ -82,18 +88,9 @@ const Signin = () => {
         </form>
       </div>
     </div>
-  );
-};
-
-export default Signin;
- */
-
-import React from 'react'
-
-const Signin = () => {
-  return (
-    <div>Signin</div>
   )
 }
 
 export default Signin
+
+

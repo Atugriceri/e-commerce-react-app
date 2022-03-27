@@ -82,14 +82,14 @@ const MenuButton = () => {
   ];
 
   const handleLogout = async () => {
-    setIsSubmitting(true)
+    setIsSubmitting(true);
     try {
-      await logout()
+      await logout();
     } catch {
-      alert("Error")
+      alert("Error");
     }
-    setIsSubmitting(false)
-  }
+    setIsSubmitting(false);
+  };
 
   return (
     <div className="justify-content-center mx-auto text-center">
@@ -127,7 +127,15 @@ const MenuButton = () => {
               <div>
                 {!loggedIn &&
                   navigation.map(
-                    ({ id, name, link, icon, loggedIn, underlined, onclick }) => (
+                    ({
+                      id,
+                      name,
+                      link,
+                      icon,
+                      loggedIn,
+                      underlined,
+                      onclick,
+                    }) => (
                       <Menu.Item key={`${name}-${id}`}>
                         {({ active }) => (
                           <div
@@ -196,7 +204,15 @@ const MenuButton = () => {
               <div>
                 {loggedIn &&
                   navigation.map(
-                    ({ id, name, link, icon, loggedIn, underlined, onclick }) => (
+                    ({
+                      id,
+                      name,
+                      link,
+                      icon,
+                      loggedIn,
+                      underlined,
+                      onclick,
+                    }) => (
                       <Menu.Item key={`${name}-0${id}`}>
                         {({ active }) => (
                           <div
@@ -223,31 +239,31 @@ const MenuButton = () => {
                           </div>
                         )}
                       </Menu.Item>
-
                     )
                   )}
 
-<Menu.Item>
-                        {({ active }) => (
-                          <div>
-                            <Link
-                              to="/"
-                              onClick={handleLogout}
-                              className={`${
-                                active
-                                  ? "bg-zinc-400/10  text-zinc-900/80"
-                                  : "text-zinc-900/80"
-                              } group flex items-center w-full px-2 py-2 text-sm font-medium`}
-                            >
-                              <LogoutIcon className="mr-2 my-auto h-5 w-5" aria-hidden="true" />
-                              Logout
-                            </Link>
-                          </div>
-                        )}
-                      </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <div>
+                      <Link
+                        to="/"
+                        onClick={handleLogout}
+                        className={`${
+                          active
+                            ? "bg-zinc-400/10  text-zinc-900/80"
+                            : "text-zinc-900/80"
+                        } group flex items-center w-full px-2 py-2 text-sm font-medium`}
+                      >
+                        <LogoutIcon
+                          className="mr-2 my-auto h-5 w-5"
+                          aria-hidden="true"
+                        />
+                        Logout
+                      </Link>
+                    </div>
+                  )}
+                </Menu.Item>
               </div>
-
-              
             </Menu.Items>
           </Transition>
         </Menu>

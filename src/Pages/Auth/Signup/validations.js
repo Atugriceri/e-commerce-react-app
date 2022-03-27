@@ -15,7 +15,7 @@ const validations = (currentUser, users) => {
     errors.email = "Email is required."
   } else if (!/\S+@\S+\.\S+/.test(currentUser.email)) {
     errors.email = "Email is invalid."
-  } else if (!isUser) {
+  } else if (isUser) {
     errors.email = "This email address is already being used!"
   }
   if (!currentUser.password) {

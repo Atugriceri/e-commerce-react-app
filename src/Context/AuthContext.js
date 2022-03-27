@@ -1,71 +1,78 @@
-import { createContext, useState, useEffect, useContext } from 'react'
-import {useNavigate } from 'react-router-dom'
+import { createContext, useState, useEffect, useContext } from "react"
+import { useNavigate } from "react-router-dom"
 
 const AuthContext = createContext()
 
-const defaultUser = JSON.parse(localStorage.getItem('user')) || {}
-const defaultUsers = JSON.parse(localStorage.getItem('users')) || []
+const defaultUser = JSON.parse(localStorage.getItem("user")) || {
+  firstName: "",
+  lastName: "",
+  email: "",
+  password: "",
+  passwordConfirm: "",
+  address: "",
+}
+const defaultUsers = JSON.parse(localStorage.getItem("users")) || []
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const [users, setUsers] = useState(defaultUsers)
   const [currentUser, setCurrentUser] = useState(defaultUser)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
   const [errors, setErrors] = useState({})
 
-  
-
-  const signup = (currentUser) => {
-    if(Object.keys(errors).length === 0) {
-      setUsers([currentUser, ...users])
-      
+  const login = (email, password) => {
+    const userData = Object.values(users)
+    const indexOfUser = users.map((item) => item.email).indexOf(email)
+    if (indexOfUser && userData[indexOfUser].password === password) {
+      const finalUser = userData[indexOfUser]
+      setCurrentUser(finalUser)
       setLoggedIn(true)
+      localStorage.setItem("user", JSON.stringify(finalUser))
+      console.log(currentUser)
     }
   }
 
-  const login = () => {
-    setLoggedIn(true)
-
-  }
-
   const logout = () => {
-    localStorage.removeItem('user')
+    localStorage.removeItem("user")
+    setCurrentUser({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      passwordConfirm: "",
+      address: "",
+    })
     setLoggedIn(false)
   }
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user')) || {}
-    
-    if(!Object.values(user).every(item => !item.length && users.some((item) => item.email === currentUser.email))) {
-      setCurrentUser(user)
-      setUsers([...users, currentUser])
+    console.log(Object.keys(errors).length)
+    if(Object.keys(errors).length > 0) {
+      setLoggedIn(false)
+    } else {
+      const userData = [...users, currentUser]
+      setUsers(userData)
+      console.log(users)
+      localStorage.setItem("users", JSON.stringify(userData))
+      localStorage.setItem("user", JSON.stringify(currentUser))
       setLoggedIn(true)
     }
-    if (Object.keys(errors).length === 0 && isSubmitting) {
-      setLoggedIn(true)
-    }
-
   }, [errors])
-
 
   const value = {
     currentUser,
     setCurrentUser,
     users,
     loggedIn,
-    signup,
     errors,
     loggedIn,
     setErrors,
     setIsSubmitting,
     logout,
+    login,
   }
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  )
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
 
 const useAuth = () => useContext(AuthContext)
