@@ -7,6 +7,7 @@ import { useCart } from "../../Context/CartContext";
 import { useFavorite } from "../../Context/FavoriteContext";
 import styles from "./styles.module.css";
 
+
 const ProductDetail = () => {
   const { addToCart, items } = useCart();
   const { addToFavorite, favoriteItems } = useFavorite();
@@ -20,7 +21,12 @@ const ProductDetail = () => {
   useEffect(() => {
     setProductID(product_id);
   }, []);
-
+const check =()=>{
+  alert('thanks')
+}
+const uncheck =()=>{
+  alert('check another')
+}
   return (
     <>
       {!loading && product?.id ? (
@@ -89,6 +95,7 @@ const ProductDetail = () => {
                     </div>
                   </div>
                   <div className="block my-auto">
+                    
                     <button
                       className={
                         !findFavoriteItem
@@ -101,11 +108,17 @@ const ProductDetail = () => {
                     >
                       <HeartIcon className={styles.heartIcon} />
                     </button>
+                    <div className='feedback'>
+                    <p>Are you intersted in this product</p>
+          <button onClick={check}>yes</button>
+          <button onClick={uncheck}>NO</button>
+          </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          
       ) : (
         <Spinner />
       )}
