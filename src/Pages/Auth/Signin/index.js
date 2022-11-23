@@ -8,7 +8,7 @@ const Signin = () => {
 
   const { currentUser, login, setCurrentUser, setIsSubmitting, loggedIn } = useAuth()
 
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("") 
   const [password, setPassword] = useState("")
 
   const emailRef = useRef()
@@ -35,7 +35,7 @@ const Signin = () => {
     <div className={styles.formGroupContainer}>
       <div className={styles.formGroup}>
         <div>
-          <h2 className={styles.title}>Login</h2>
+          <h2 className={styles.title}>Login</h2>           
         </div>
         <form
           autoComplete="off"

@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import SimpleForm from "./SimpleForm";
 import "./App.css";
-import { Link} from 'react-router-dom'
-
+import { Link} from 'react-router-dom';
+import Logo from './Logo.png'
 
 
 const First = (props) => {
   let [showChat, setShowChat] = useState(false);
-
+  
   const startChat = () => {
     setShowChat(true);
+    
   };
   const hideChat = () => {
     setShowChat(false);
@@ -39,17 +40,18 @@ const First = (props) => {
           <Link to="/first" >
     </Link>
         </div>
-        <div> {showChat ? <SimpleForm></SimpleForm> : null} </div>
+        {/* <div> {showChat ? <SimpleForm></SimpleForm> : null} </div> */}
         <div>
           {!showChat ? (
-            <button className="btn" onClick={() => startChat()}>
-              click to chat...{" "}
+           <button   className="btn" onClick={() => startChat()}>
+               <img src={Logo} alt='Logo.png' />{" "}
             </button>
           ) : (
             <button className="btn" onClick={() => hideChat()}>
-              click to hide...{" "}
+             <img src={Logo} alt='Logo.png' />{""}
             </button>
           )}
+          
         </div>
       </div>
     </>

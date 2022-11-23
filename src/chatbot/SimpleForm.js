@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ChatBot from "react-simple-chatbot";
-import Review from "./chatbot/Review";
+import Review from "./Review";
+
 
 
 class SimpleForm extends Component {
@@ -113,7 +114,9 @@ class SimpleForm extends Component {
             id: "end-message1",
             message: "Thanks! Your data was submitted successfully!",
             end: true
-          }
+          },
+          
+        
         ]}
       />
      

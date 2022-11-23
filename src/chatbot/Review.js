@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
+
 
 const Review = (props) => {
   const [state, setState] = useState({ Product: "", gmail: "", Contact: "" });
-
+  
+  
   useEffect(() => {
     const { steps } = props;
     const { Product, gmail, Contact } = steps;
-    setState({ Product, gmail, Contact });
+    setState({ Product, gmail, Contact })
   }, [props]);
 
   const { Product, gmail, Contact } = state;
+
+ useEffect(()=>{
+
+   axios.post(`http://localhost:3000/posts`,{
+     Product,
+     Contact,
+  })
+ },[])
+
+
+ 
+ 
   return (
     <div style={{ width: "100%" }}>
       <h3>Summary</h3>
@@ -30,6 +45,7 @@ const Review = (props) => {
           </tr>
         </tbody>
       </table>
+      {/* <button type="submit" onClick={data}>submit</button> */}
       
     </div>
   );

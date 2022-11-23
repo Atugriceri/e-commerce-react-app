@@ -11,6 +11,8 @@ import ProductDetail from './Pages/ProductDetail'
 import Cart from './Pages/Cart'
 import Favorites from './Pages/Favorites'
 
+
+
 function App() {
   return (
     <div className="container mx-auto">
@@ -24,7 +26,7 @@ function App() {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="*" element={<Error404 />} />
+          <Route path="*" element={<Error404 />} />         
         </Routes>
       </Container>
     </div>
