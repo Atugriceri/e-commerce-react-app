@@ -9,6 +9,7 @@ import Card from "../../Components/Card";
 
 const Products = () => {
   const {addToCart, items} = useCart()
+
   const {addToFavorite, favoriteItems} = useFavorite()
 
   const { productList, loading, setProductID, setCategory } = useProduct();

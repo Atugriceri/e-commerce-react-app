@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import ChatBot from "react-simple-chatbot";
 import Review from "./Review";
-
-
-
+import Card from "../Components/Card";
 class SimpleForm extends Component {
+ 
   render() {
-    return (
-      <ChatBot 
+ return (
+   <ChatBot 
         steps={[
-          {
+          { 
             id: "1",
-            message: "Are you Intersted in this Product?",
+            message: `Are you Intersted in this Product?,`,
+            // message1:<h1>{item.title}</h1>,
             trigger: "Product"
           },
           {
@@ -115,8 +115,9 @@ class SimpleForm extends Component {
             message: "Thanks! Your data was submitted successfully!",
             end: true
           },
-          
-        
+          // <h1>{item.title}</h1>,
+          // <Card/>
+       
         ]}
       />
      

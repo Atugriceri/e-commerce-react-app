@@ -11,21 +11,14 @@ const Review = (props) => {
     const { steps } = props;
     const { Product, gmail, Contact } = steps;
     setState({ Product, gmail, Contact })
-  }, [props]);
+    axios.post(`http://localhost:3000/posts`,{
+      Contact,
+      gmail
+   })
+  }, []);
 
   const { Product, gmail, Contact } = state;
 
- useEffect(()=>{
-
-   axios.post(`http://localhost:3000/posts`,{
-     Product,
-     Contact,
-  })
- },[])
-
-
- 
- 
   return (
     <div style={{ width: "100%" }}>
       <h3>Summary</h3>
