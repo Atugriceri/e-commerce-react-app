@@ -14,7 +14,8 @@
   max-h-max 
   w-full 
   py-4 
-  my-auto 
+  mb-auto 
+  mt-0
   px-4
   object-scale-down 
   shadow-sm
@@ -138,4 +139,8 @@
 .emptyStarIcon {
   @apply 
   text-zinc-900/80 
+}
+.feedback{
+  
+  color:blue
 }

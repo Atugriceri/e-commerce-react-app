@@ -7,6 +7,8 @@ import { ProductProvider } from './Context/ProductContext'
 import { CartProvider } from './Context/CartContext'
 import { FavoriteProvider } from './Context/FavoriteContext'
 import { BrowserRouter } from 'react-router-dom'
+import * as serviceWorker from './chatbot/ServiceWorker';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,4 +26,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 )
+serviceWorker.unregister();
 

@@ -2,16 +2,20 @@ import styles from './styles.module.css'
 import { StarIcon, ShoppingCartIcon, HeartIcon } from '@heroicons/react/solid'
 import { Link } from 'react-router-dom'
 
-const Card = ({
+const Card  = ({
   item,
   addToFavorite,
   findFavoriteItem,
   addToCart,
   findCartItem,
-}) => {
-
+}) =>
+{
+ 
   return (
     <div key={`${item.id}-item`} className={styles.card} title={item.title}>
+      {/* <h1>{item.title}</h1> */}
+      
+
       <div className={styles.cardLink}>
         <button
           className={
@@ -91,6 +95,6 @@ const Card = ({
       </div>
     </div>
   )
-}
 
+            }  
 export default Card

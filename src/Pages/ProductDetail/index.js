@@ -6,6 +6,8 @@ import { useProduct } from "../../Context/ProductContext";
 import { useCart } from "../../Context/CartContext";
 import { useFavorite } from "../../Context/FavoriteContext";
 import styles from "./styles.module.css";
+import First from '../../chatbot/First'
+
 
 const ProductDetail = () => {
   const { addToCart, items } = useCart();
@@ -20,9 +22,8 @@ const ProductDetail = () => {
   useEffect(() => {
     setProductID(product_id);
   }, []);
-
   return (
-    <>
+    <>    
       {!loading && product?.id ? (
           <div className="flex flex-wrap max-w-7xl mx-auto my-4">
             <div className="w-full sm:w-2/2 md:w-2/2 xl:w-5/5 p-4 flex flex-wrap">
@@ -63,10 +64,12 @@ const ProductDetail = () => {
                   {product.description}
                 </p>
                 <div className="flex">
-                  <div className="my-auto">
+                  <div className="my-2">
                     <span className="font-extralight text-2xl inline-block align-middle mt-2 my-auto">
                       $ {product.price}
                     </span>
+                   
+                    
                   </div>
                   <div className="block ml-auto my-auto mt-0">
                     {" "}
@@ -79,7 +82,6 @@ const ProductDetail = () => {
                           className={styles.shoppingCartIcon}
                           aria-hidden="true"
                         />
-
                         <div className="flex flex-col self-center">
                           <span className={styles.buttonText}>
                             {findCartItem ? "Remove from cart" : "Add to Cart"}
@@ -101,11 +103,16 @@ const ProductDetail = () => {
                     >
                       <HeartIcon className={styles.heartIcon} />
                     </button>
+                    <div className='feed'>
+                   <span><First/></span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+          
           </div>
+          
       ) : (
         <Spinner />
       )}
